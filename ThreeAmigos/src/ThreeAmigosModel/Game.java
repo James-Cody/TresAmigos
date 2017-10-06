@@ -19,6 +19,8 @@ public class Game implements Serializable{
     private Player player = new Player();
     private Map map = new Map();
     private ArrayList<Actor> actors = new ArrayList<Actor>();
+    private ArrayList<InventoryItem> inventoryItems = 
+            new ArrayList<InventoryItem>();
     
     public Game(){
     }
