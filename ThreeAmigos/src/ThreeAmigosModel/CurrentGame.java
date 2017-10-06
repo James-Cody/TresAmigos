@@ -18,6 +18,7 @@ public class CurrentGame implements Serializable{
     private Player player = new Player();
     private ArrayList<PartyMembers> partyMembers = new ArrayList<PartyMembers>();
     private ArrayList<City> cities = new ArrayList<City>();
+    private ArrayList<ItemsStore> items = new ArrayList<ItemsStore>();
 
     public CurrentGame() {
     }    
@@ -60,6 +61,14 @@ public class CurrentGame implements Serializable{
 
     public void setCities(ArrayList<City> cities) {
         this.cities = cities;
+    }
+
+    public ArrayList<ItemsStore> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<ItemsStore> items) {
+        this.items = items;
     }
     
 
