@@ -6,6 +6,7 @@
 package ThreeAmigosModel;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -18,6 +19,7 @@ public class ItemsStore implements Serializable{
     private int quantityInStock;
     private double requiredAmount;
     private CurrentGame game = new CurrentGame();
+    private ArrayList<ResourceScene> resourcesScene = new ArrayList<ResourceScene>();
 
     public ItemsStore() {
     }
@@ -60,6 +62,14 @@ public class ItemsStore implements Serializable{
 
     public void setGame(CurrentGame game) {
         this.game = game;
+    }
+
+    public ArrayList<ResourceScene> getResourcesScene() {
+        return resourcesScene;
+    }
+
+    public void setResourcesScene(ArrayList<ResourceScene> resourcesScene) {
+        this.resourcesScene = resourcesScene;
     }
 
     @Override
