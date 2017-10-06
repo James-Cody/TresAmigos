@@ -6,6 +6,7 @@
 package ThreeAmigosModel;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -15,6 +16,7 @@ import java.util.Objects;
 public class Player implements Serializable{
     private String name;
     private double highScore;
+    private ArrayList<CurrentGame> games = new ArrayList<CurrentGame>();
 
     public Player() {
     }
@@ -33,6 +35,14 @@ public class Player implements Serializable{
 
     public void setHighScore(double highScore) {
         this.highScore = highScore;
+    }
+
+    public ArrayList<CurrentGame> getGames() {
+        return games;
+    }
+
+    public void setGames(ArrayList<CurrentGame> games) {
+        this.games = games;
     }
 
     @Override

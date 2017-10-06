@@ -14,11 +14,10 @@ import java.io.Serializable;
 public class CurrentGame implements Serializable{
     private int peopleAlive;
     private long totalTimeTraveled;
+    private Player player = new Player();
 
     public CurrentGame() {
-    }
-
-    
+    }    
     
     public int getPeopleAlive() {
         return peopleAlive;
@@ -34,6 +33,14 @@ public class CurrentGame implements Serializable{
 
     public void setTotalTimeTraveled(long totalTimeTraveled) {
         this.totalTimeTraveled = totalTimeTraveled;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     @Override
