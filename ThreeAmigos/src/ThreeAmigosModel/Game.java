@@ -6,6 +6,7 @@
 package ThreeAmigosModel;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,7 +16,9 @@ import java.io.Serializable;
 public class Game implements Serializable{
     private double totalTime;
     private int noPeople;
-    private Player player;
+    private Player player = new Player();
+    private Map map = new Map();
+    private ArrayList<Actor> actors = new ArrayList<Actor>();
     
     public Game(){
     }
