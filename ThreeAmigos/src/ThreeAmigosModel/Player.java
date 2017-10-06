@@ -17,6 +17,7 @@ public class Player implements Serializable{
     private String name;
     private double bestTime;
     private ArrayList<Game> games = new ArrayList<Game>();
+    private Actor actor = new Actor();
     
     public Player(){
     }
