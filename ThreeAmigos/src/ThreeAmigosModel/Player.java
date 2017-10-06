@@ -6,47 +6,41 @@
 package ThreeAmigosModel;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Objects;
 
 /**
  *
- * @author Cody
+ * @author Govert Carreño
  */
 public class Player implements Serializable{
     private String name;
-    private double bestTime;
-    private ArrayList<Game> games = new ArrayList<Game>();
-    private Actor actor = new Actor();
-    
-    public Player(){
-    }
+    private double highScore;
 
-    /**
-     * @return the name
-     */
+    public Player() {
+    }
+    
     public String getName() {
         return name;
     }
 
-    /**
-     * @param name the name to set
-     */
     public void setName(String name) {
         this.name = name;
+    }
+
+    public double getHighScore() {
+        return highScore;
+    }
+
+    public void setHighScore(double highScore) {
+        this.highScore = highScore;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 89 * hash + Objects.hashCode(this.name);
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.bestTime) ^ (Double.doubleToLongBits(this.bestTime) >>> 32));
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.highScore) ^ (Double.doubleToLongBits(this.highScore) >>> 32));
         return hash;
-    }
-
-    @Override
-    public String toString() {
-        return "Player{" + "name=" + name + ", bestTime=" + bestTime + '}';
     }
 
     @Override
@@ -61,7 +55,7 @@ public class Player implements Serializable{
             return false;
         }
         final Player other = (Player) obj;
-        if (Double.doubleToLongBits(this.bestTime) != Double.doubleToLongBits(other.bestTime)) {
+        if (Double.doubleToLongBits(this.highScore) != Double.doubleToLongBits(other.highScore)) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
@@ -70,26 +64,11 @@ public class Player implements Serializable{
         return true;
     }
 
-    /**
-     * @return the bestTime
-     */
-    public double getBestTime() {
-        return bestTime;
+    @Override
+    public String toString() {
+        return "Player{" + "name=" + name + ", highScore=" + highScore + '}';
     }
-
-    /**
-     * @param bestTime the bestTime to set
-     */
-    public void setBestTime(double bestTime) {
-        this.bestTime = bestTime;
-    }
-
-    public ArrayList<Game> getGames() {
-        return games;
-    }
-
-    public void setGames(ArrayList<Game> games) {
-        this.games = games;
-    }
-
+    
+    
+    
 }
