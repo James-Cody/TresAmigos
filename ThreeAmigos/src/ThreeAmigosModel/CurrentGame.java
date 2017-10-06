@@ -6,6 +6,7 @@
 package ThreeAmigosModel;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,6 +16,8 @@ public class CurrentGame implements Serializable{
     private int peopleAlive;
     private long totalTimeTraveled;
     private Player player = new Player();
+    private ArrayList<PartyMembers> partyMembers = new ArrayList<PartyMembers>();
+    private ArrayList<City> cities = new ArrayList<City>();
 
     public CurrentGame() {
     }    
@@ -42,6 +45,23 @@ public class CurrentGame implements Serializable{
     public void setPlayer(Player player) {
         this.player = player;
     }
+
+    public ArrayList<PartyMembers> getPartyMembers() {
+        return partyMembers;
+    }
+
+    public void setPartyMembers(ArrayList<PartyMembers> partyMembers) {
+        this.partyMembers = partyMembers;
+    }
+
+    public ArrayList<City> getCities() {
+        return cities;
+    }
+
+    public void setCities(ArrayList<City> cities) {
+        this.cities = cities;
+    }
+    
 
     @Override
     public int hashCode() {
