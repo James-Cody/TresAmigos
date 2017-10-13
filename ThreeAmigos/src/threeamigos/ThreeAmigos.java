@@ -56,7 +56,6 @@ public class ThreeAmigos {
         System.out.println(travelingCondition.toString());
         System.out.println(scene.toString());
         
-        
     }
     
 }
