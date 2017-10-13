@@ -16,9 +16,8 @@ import java.util.Objects;
 public class ItemsStore implements Serializable{
     private String name;
     private String type;
-    private int quantityInStock;
+    private int quantityInStore;
     private double requiredAmount;
-    private CurrentGame game = new CurrentGame();
     private ArrayList<ResourceScene> resourcesScene = new ArrayList<ResourceScene>();
 
     public ItemsStore() {
@@ -41,11 +40,11 @@ public class ItemsStore implements Serializable{
     }
 
     public int getQuantityInStock() {
-        return quantityInStock;
+        return quantityInStore;
     }
 
     public void setQuantityInStock(int quantityInStock) {
-        this.quantityInStock = quantityInStock;
+        this.quantityInStore = quantityInStock;
     }
 
     public double getRequiredAmount() {
@@ -54,14 +53,6 @@ public class ItemsStore implements Serializable{
 
     public void setRequiredAmount(double requiredAmount) {
         this.requiredAmount = requiredAmount;
-    }
-
-    public CurrentGame getGame() {
-        return game;
-    }
-
-    public void setGame(CurrentGame game) {
-        this.game = game;
     }
 
     public ArrayList<ResourceScene> getResourcesScene() {
