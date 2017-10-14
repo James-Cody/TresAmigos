@@ -19,7 +19,10 @@ public class ItemsControl {
         return ;
     }
     
-    public void useItem() {
+    public void useItem(item) {
+        /*
+        if item is not A, B, or C return error
+        */
         return ;
     }
     
@@ -27,14 +30,21 @@ public class ItemsControl {
         return ;
     }
     
-    public void updateTotalBill(funds) {
+    public void updateTotalBill(funds, bill) {
         /*
         If total bill is greater than funds, return error
+        if bill is less than 0 return error
         */
         return ;
     }
     
-    public void trade() {
+    public void trade(funds, item, cost) {
+        /*
+        if item is not A, B, or C return error
+        if funds are less than 0 return error
+        if cost is = or less than 0 return error
+        if funds is less tahn cost return error
+        */      
         return ;
     }
 }
