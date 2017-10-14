@@ -11,21 +11,23 @@ package ThreeAmigosControl;
  */
 public class TravelingConditionControl {
     
-    public void randomEvent(animalAttack, theives, weather, wagonRepair) {
+    public void randomEvent(bAnimalAttack, bTheives, weather, bWagonRepair) {
         /*
-        If animal attack equals 1, return true
-        If theives equals 1, return true
-        If weather equals 1, return true
-        If wagon repairs equals 1, return true
+        If bAnimalAttack equals 1, do stuff
+        If bTheives equals 1, do stuff
+        if weather is not A, B, or C return error
+        If weather is not A, do stuff
+        If bWagonRepair equals 1, do stuff
         */
         return ;
     }
     
-    public void crossRiver(ferry, obstacles) {
+    public void crossRiver(ferry, money, weather, bWagonRepair, numberOfOxen) {
         /*
         If there is not enough money for a ferry, return error
         If wagon needs repairs, return error
-        If wagon has insufficient oxen, return error
+        If numberOfOxen is not 2 or more, return error
+        if weather is not A, B, or C return error
         */
         return ;
     }
