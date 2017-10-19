@@ -15,13 +15,22 @@ import java.util.ArrayList;
 public class CurrentGame implements Serializable{
     private int peopleAlive;
     private long totalTimeTraveled;
+    private long amount;
     private Player player = new Player();
     private PartyMembers[] partyMembers = new PartyMembers[5];
     private ArrayList<City> cities = new ArrayList<City>();
-    private ArrayList<ItemsStore> items = new ArrayList<ItemsStore>();
+    private ArrayList<Items> items = new ArrayList<Items>();
 
     public CurrentGame() {
     }    
+
+    public long getAmount() {
+        return amount;
+    }
+
+    public void setAmount(long amount) {
+        this.amount = amount;
+    }
     
     public int getPeopleAlive() {
         return peopleAlive;
@@ -63,15 +72,14 @@ public class CurrentGame implements Serializable{
         this.cities = cities;
     }
 
-    public ArrayList<ItemsStore> getItems() {
+    public ArrayList<Items> getItems() {
         return items;
     }
 
-    public void setItems(ArrayList<ItemsStore> items) {
+    public void setItems(ArrayList<Items> items) {
         this.items = items;
     }
     
-
     @Override
     public int hashCode() {
         int hash = 7;
