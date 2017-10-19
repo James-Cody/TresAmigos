@@ -5,52 +5,77 @@
  */
 package ThreeAmigosControl;
 
+import ThreeAmigosModel.CurrentGame;
+import ThreeAmigosModel.Progress;
+
 /**
  *
  * @author tri_t
  */
 public class GameControl {
   
-    public void startGame(location, players, partyStatus, score) {
+    /*public void startGame(location, players, partyStatus, score) {*/
+    public String startGame(Progress progress, CurrentGame currentGame, double score) {
+        String res = "";
+        
+        if (score <= 0) res = "There is not score";
+        if (progress.getLocation() == 0) res = "Invalid location";
+        if (currentGame.getPartyMembers().isEmpty()) res = "there is not party members";
+        
+        return res;
+    }  
+    public String saveGame(Progress progress, CurrentGame currentGame, double score) {
         /*
         If score is less than 0, return error
         If location is not A, B, or C, return error
         If players is less than 0 or greater than 5, return error
         If party status is not A, B, or C, return error
         */
-        return ;
+        String res = "";
+        if (score <= 0) res = "There is not score";
+        if (progress.getLocation() == 0) res = "Invalid location";
+        if (currentGame.getPartyMembers().isEmpty()) res = "there is not party members";
+        
+        return res;
     }  
-    public void saveGame(location, players, partyStatus, score) {
+    public String winningLosing(double score,Progress progress) {
         /*
         If score is less than 0, return error
-        If location is not A, B, or C, return error
-        If players is less than 0 or greater than 5, return error
-        If party status is not A, B, or C, return error
+        If location is oregon then return "Game finished, you won"
         */
-        return ;
-    }  
-    public void winningLosing(score) {
-        /*
-        If score is less than 0, return error
-        */
-        return ;
+        String res = "";
+        if(score == 0) res = "Game Over";
+        if(progress.getLocation() == 25) res = "Win"; //City 25 is the last city
+        
+        return res;
         
     }  
-    public void getScore(remainingPartyMembers, distanceTraveled) {
+    public String getScore(CurrentGame game, double distanceTraveled) {
         /*
          * Checking for if party members is less than 0 error or greater than 5 
         error
             Distance traveled if less than 0 error
          */
-        return ;
-    }  
-    public void quit(location, players, partyStatus, score) {
+        String res = "";
+        if (game.getPartyMembers().size() <= 0) res = "There is not party members";
+        if (distanceTraveled < 0 ) res = "Distance traveled error.";
+        
+        return res;
+        
+    }
+    public String quit(Progress progress, CurrentGame currentGame, double score) {
         /*
         If score is less than 0, return error
         If location is not A, B, or C, return error
         If players is less than 0 or greater than 5, return error
         If party status is not A, B, or C, return error
         */
-        return ;
+        String res = "";
+        
+        if (score <= 0) res = "There is not score";
+        if (progress.getLocation() == 0) res = "Invalid location";
+        if (currentGame.getPartyMembers().isEmpty()) res = "there is not party members";
+        
+        return res;
     }  
 }
