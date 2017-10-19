@@ -16,7 +16,7 @@ import java.util.Objects;
  * @author Govert Carreño
  */
 public class Progress implements Serializable{
-    private int[][] location;
+    private int location;
     private long totalTime;
     private Date currentDate;
     private int citiesVisited;
@@ -25,14 +25,23 @@ public class Progress implements Serializable{
     public Progress() {
     }
 
-    public int[][] getLocation() {
+    public int getLocation() {
         return location;
     }
 
-    public void setLocation(int[][] location) {
+    public void setLocation(int location) {
         this.location = location;
     }
 
+    public ArrayList<Scenes> getScenes() {
+        return scenes;
+    }
+
+    public void setScenes(ArrayList<Scenes> scenes) {
+        this.scenes = scenes;
+    }
+
+ 
     public long getTotalTime() {
         return totalTime;
     }
@@ -59,11 +68,12 @@ public class Progress implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 29 * hash + Arrays.deepHashCode(this.location);
-        hash = 29 * hash + (int) (this.totalTime ^ (this.totalTime >>> 32));
-        hash = 29 * hash + Objects.hashCode(this.currentDate);
-        hash = 29 * hash + this.citiesVisited;
+        int hash = 7;
+        hash = 97 * hash + this.location;
+        hash = 97 * hash + (int) (this.totalTime ^ (this.totalTime >>> 32));
+        hash = 97 * hash + Objects.hashCode(this.currentDate);
+        hash = 97 * hash + this.citiesVisited;
+        hash = 97 * hash + Objects.hashCode(this.scenes);
         return hash;
     }
 
@@ -79,20 +89,25 @@ public class Progress implements Serializable{
             return false;
         }
         final Progress other = (Progress) obj;
+        if (this.location != other.location) {
+            return false;
+        }
         if (this.totalTime != other.totalTime) {
             return false;
         }
         if (this.citiesVisited != other.citiesVisited) {
             return false;
         }
-        if (!Arrays.deepEquals(this.location, other.location)) {
+        if (!Objects.equals(this.currentDate, other.currentDate)) {
             return false;
         }
-        if (!Objects.equals(this.currentDate, other.currentDate)) {
+        if (!Objects.equals(this.scenes, other.scenes)) {
             return false;
         }
         return true;
     }
+
+   
 
     @Override
     public String toString() {

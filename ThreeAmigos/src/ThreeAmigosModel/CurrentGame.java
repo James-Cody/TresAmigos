@@ -17,7 +17,7 @@ public class CurrentGame implements Serializable{
     private long totalTimeTraveled;
     private long amount;
     private Player player = new Player();
-    private PartyMembers[] partyMembers = new PartyMembers[5];
+    private ArrayList<PartyMembers> partyMembers = new ArrayList<PartyMembers>();
     private ArrayList<City> cities = new ArrayList<City>();
     private ArrayList<Items> items = new ArrayList<Items>();
 
@@ -56,11 +56,11 @@ public class CurrentGame implements Serializable{
         this.player = player;
     }
 
-    public PartyMembers[] getPartyMembers() {
+    public ArrayList<PartyMembers> getPartyMembers() {
         return partyMembers;
     }
 
-    public void setPartyMembers(PartyMembers[] partyMembers) {
+    public void setPartyMembers(ArrayList<PartyMembers> partyMembers) {
         this.partyMembers = partyMembers;
     }
 
