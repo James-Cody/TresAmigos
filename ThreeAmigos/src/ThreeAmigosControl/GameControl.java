@@ -20,7 +20,7 @@ public class GameControl {
         
         if (score <= 0) res = "There is not score";
         if (progress.getLocation() == 0) res = "Invalid location";
-        if (currentGame.getPartyMembers().isEmpty()) res = "there is not party members";
+        if (currentGame.getPartyMembers().isEmpty()) res = "there are no party members";
         
         return res;
     }  
