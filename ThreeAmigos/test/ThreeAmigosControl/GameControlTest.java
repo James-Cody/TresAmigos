@@ -33,7 +33,7 @@ public class GameControlTest {
         String result = instance.startGame(progress, currentGame, score);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -50,7 +50,7 @@ public class GameControlTest {
         String result = instance.saveGame(progress, currentGame, score);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -66,7 +66,7 @@ public class GameControlTest {
         String result = instance.winningLosing(score, progress);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -82,7 +82,7 @@ public class GameControlTest {
         String result = instance.getScore(game, distanceTraveled);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -99,7 +99,7 @@ public class GameControlTest {
         String result = instance.quit(progress, currentGame, score);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }

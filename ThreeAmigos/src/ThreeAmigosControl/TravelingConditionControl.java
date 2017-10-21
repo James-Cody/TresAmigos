@@ -11,7 +11,8 @@ package ThreeAmigosControl;
  */
 public class TravelingConditionControl {
     
-    public void randomEvent(bAnimalAttack, bTheives, weather, bWagonRepair) {
+    public void randomEvent(bool bAnimalAttack, bool bTheives, 
+                            string weather, bool bWagonRepair) {
         /*
         If bAnimalAttack equals 1, do stuff
         If bTheives equals 1, do stuff
@@ -22,7 +23,8 @@ public class TravelingConditionControl {
         return ;
     }
     
-    public void crossRiver(ferry, money, weather, bWagonRepair, numberOfOxen) {
+    public void crossRiver(bool ferry, int money, string weather, 
+                            bool bWagonRepair, int numberOfOxen) {
         /*
         If there is not enough money for a ferry, return error
         If wagon needs repairs, return error
