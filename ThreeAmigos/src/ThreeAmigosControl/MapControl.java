@@ -15,6 +15,8 @@ public class MapControl {
         /*
         if new location is not A, B, C return error
         */
+        //if (newLocation != A || newLocation != B
+        //        || newLocation != C){ return -1; } - to be updated later with city names
         return ;
     }
     
@@ -23,6 +25,7 @@ public class MapControl {
         if date is 0 or less return error
         if date is greater than 365 return error
         */
+        if (date <= 0 || date > 365) {return -1;}
         return ;
     } 
     
@@ -31,6 +34,8 @@ public class MapControl {
          if remainingPartyMember is less than 1 return error
          if totalFood is 0 or less than 0 then return error
          */
+         if (remainingPartyMember < 1 ) {return -1;}
+         if (totalFood < 0) {return -1;}
         return ;
     }    
      
@@ -39,6 +44,8 @@ public class MapControl {
          If totalFood is less than 0 return error
          if rationLevel is not 1, 2, or 3 return error
          */
+         if (totalFood < 0) {return -1;}
+         if (rationLevel != 1 || rationLevel != 2 || rationLevel != 3) {return -1;}
         return ;
     }  
      
@@ -46,19 +53,23 @@ public class MapControl {
         return ;
     }    
       
-     public void checkMap(string urrentLocation, int date) {
+     public void checkMap(string currentLocation, int date) {
          /*
          if currentLocation is not A, B, or C return error
          if date is 0 or less return error
          if date is greater than 365 return error
          */
+        // if (currentLocation != A || currentLocation != B
+        //        || currentLocation != C){ return -1; } - to be updated later with city names
+        if (date <= 0 || date > 365) {return -1;}
         return ;
     }  
        
      public void changePace(int pace) {
-         /*
-         if pace is not 1, 2, or 3 return error
-         */
+        /*
+        if pace is not 1, 2, or 3 return error
+        */
+        if (pace != 1 || pace != 2 || pace != 3) {return -1;}
         return ;
     }    
         
@@ -67,6 +78,8 @@ public class MapControl {
          If totalFood is less than 0 return error
          if rationLevel is not 1, 2, or 3 return error
          */
+        if (totalFood < 0) {return -1;}
+        if (rationLevel != 1 || rationLevel != 2 || rationLevel != 3) {return -1;}
         return ;
     }    
          
@@ -76,6 +89,9 @@ public class MapControl {
          if date is 0 or less return error
          if date is greater than 365 return error
          */
+         //if (playerHealth != "Good" || 
+         //     playerHealth != "list of status ailments") {return -1;}
+         if (date <= 0 || date > 365) {return -1;}
         return ;
     }    
           
@@ -83,6 +99,7 @@ public class MapControl {
          /*
          If ammuntion equals zero, return error
           */
+         if (ammuntion <= 0) {return -1;}
         return ;
     }    
 }

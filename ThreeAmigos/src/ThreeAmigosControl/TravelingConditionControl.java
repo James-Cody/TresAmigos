@@ -22,13 +22,12 @@ public class TravelingConditionControl {
         */
         if (bAnimalAttack != 1){ return -1; }
         if (bTheives != 1){ return -1; }
-        if (weather != Good || weather != Ok || weather != Bad){ return -1; }
-        if (weather != Good || weather != Ok || weather != Bad){ return -1; }
+        if (weather != "Good" || weather != "Ok" || weather != "Bad"){ return -1; }
         if (bWagonRepair != 1){ return -1; }
         return ;
     }
     
-    public void crossRiver(bool ferry, int money, string weather, 
+    public void crossRiver(int ferry, int money, string weather, 
                             bool bWagonRepair, int numberOfOxen) {
         /*
         If there is not enough money for a ferry, return error
@@ -36,6 +35,10 @@ public class TravelingConditionControl {
         If numberOfOxen is not 2 or more, return error
         if weather is not A, B, or C return error
         */
+        if (money < ferry) {return -1;}
+        if (wagon != 0 || wagon != 1) {return -1;}
+        if (numberOfOxen < 2) {return -1;}
+        if (weather != "Good" || weather != "Ok" || weather != "Bad"){ return -1; }
         return ;
     }
 }
