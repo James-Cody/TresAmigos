@@ -10,7 +10,7 @@ import ThreeAmigosModel.Progress;
 
 /**
  *
- * @author tri_t
+ * @author Govert
  */
 public class GameControl {
   

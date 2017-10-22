@@ -7,7 +7,7 @@ package ThreeAmigosControl;
 
 /**
  *
- * @author tri_t
+ * @author Cody
  */
 public class MapControl {
     

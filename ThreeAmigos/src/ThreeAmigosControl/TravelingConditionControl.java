@@ -7,7 +7,7 @@ package ThreeAmigosControl;
 
 /**
  *
- * @author tri_t
+ * @author group
  */
 public class TravelingConditionControl {
     
@@ -17,9 +17,14 @@ public class TravelingConditionControl {
         If bAnimalAttack equals 1, do stuff
         If bTheives equals 1, do stuff
         if weather is not A, B, or C return error
-        If weather is not A, do stuff
+        //If weather is not A, do stuff - this gives bad things if bad weather
         If bWagonRepair equals 1, do stuff
         */
+        if (bAnimalAttack != 1){ return -1; }
+        if (bTheives != 1){ return -1; }
+        if (weather != Good || weather != Ok || weather != Bad){ return -1; }
+        if (weather != Good || weather != Ok || weather != Bad){ return -1; }
+        if (bWagonRepair != 1){ return -1; }
         return ;
     }
     
