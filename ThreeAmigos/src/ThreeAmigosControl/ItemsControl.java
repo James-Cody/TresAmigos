@@ -7,22 +7,26 @@ package ThreeAmigosControl;
 
 /**
  *
- * @author tri_t
+ * @author Alex
  */
 public class ItemsControl {
     
-    public void buyItem(funds, storageSpace) {
+    public void buyItem(int funds, int storageSpace) {
         /*
         If item price is greater than funds, return error
         If item volume is greater than storage space, return error
         */
+        if (itemPrice > funds) {return -1;}
+        if (itemVolume > storgaeSpace) {return -1;}
         return ;
     }
     
-    public void useItem(item) {
+    public void useItem(string item) {
         /*
         if item is not A, B, or C return error
         */
+        //if (item != "list of item") {return -1;} - list of items to come
+        
         return ;
     }
     
@@ -30,21 +34,28 @@ public class ItemsControl {
         return ;
     }
     
-    public void updateTotalBill(funds, bill) {
+    public void updateTotalBill(int funds, int bill) {
         /*
         If total bill is greater than funds, return error
         if bill is less than 0 return error
         */
+        if (totalBill > funds) {return -1;}
+        if (bill < 0) {return -1;}
         return ;
     }
     
-    public void trade(funds, item, cost) {
+    public void trade(int funds, string item, int cost) {
         /*
         if item is not A, B, or C return error
         if funds are less than 0 return error
         if cost is = or less than 0 return error
-        if funds is less tahn cost return error
-        */      
+        if funds is less than cost return error
+        */ 
+        //if (item != "list of item") {return -1;} - list of items to come
+         if (funds < 0) {return -1;}
+         if (cost <= 0) {return -1;}
+         if (funds < cost) {return -1;}
+    
         return ;
     }
 }
