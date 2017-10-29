@@ -6,13 +6,24 @@
 package ThreeAmigosControl;
 
 import ThreeAmigosModel.CurrentGame;
+import ThreeAmigosModel.Player;
 import ThreeAmigosModel.Progress;
+import threeamigos.ThreeAmigos;
 
 /**
  *
  * @author Govert
  */
 public class GameControl {
+
+    public static Player createPlayer(String name) {
+        if(name == null) return null;// if invalid name return null
+        
+        Player player = new Player();//create new player
+        player.setName(name);// set the name of the player
+        ThreeAmigos.setPlayer(player);// save player
+        return player;
+    }
   
     /*public void startGame(location, players, partyStatus, score) {*/
     public String startGame(Progress progress, CurrentGame currentGame, double score) {

@@ -5,6 +5,10 @@
  */
 package threeamigos;
 
+import ThreeAmigosModel.CurrentGame;
+import ThreeAmigosModel.Player;
+import ThreeAmigosView.StartProgramView;
+
 
 /**
  *
@@ -12,11 +16,30 @@ package threeamigos;
  */
 public class ThreeAmigos {
 
-    /**
-     * @param args the command line arguments
-     */
+    private static CurrentGame currentGame = null;
+    private static Player player = null;
+
+    public static CurrentGame getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(CurrentGame currentGame) {
+        ThreeAmigos.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        ThreeAmigos.player = player;
+    }
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        //Test view layer
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.displayStartProgramView();
         
     }
     
