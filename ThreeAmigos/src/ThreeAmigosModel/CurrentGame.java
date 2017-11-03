@@ -16,6 +16,8 @@ public class CurrentGame implements Serializable{
     private int peopleAlive;
     private long totalTimeTraveled;
     private long amount;
+    private String ocupation;
+    private int money;
     private Player player = new Player();
     private ArrayList<PartyMembers> partyMembers = new ArrayList<PartyMembers>();
     private ArrayList<City> cities = new ArrayList<City>();
@@ -23,6 +25,24 @@ public class CurrentGame implements Serializable{
 
     public CurrentGame() {
     }    
+
+    public String getOcupation() {
+        return ocupation;
+    }
+
+    public void setOcupation(String ocupation) {
+        this.ocupation = ocupation;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+    
+    
 
     public long getAmount() {
         return amount;

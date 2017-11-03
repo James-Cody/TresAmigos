@@ -81,7 +81,7 @@ class MainMenuView {
         GameControl.createNewTravel(ThreeAmigos.getPlayer());
         
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        gameMenu.displayOcupationMenu();
     }
 
     private void learnAboutTheTrail() {

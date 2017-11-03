@@ -90,12 +90,12 @@ public class StartProgramView {
 
     private void displayNextView(Player player) {
         System.out.println(
-   		  "\n================================"
+   		  "\n================================================"
                 + "\nWelcome to The Oregon Trail " + player.getName()
                 + "\nYour journey will be difficult "
                 + "\nbut remember that with hope and"
                 + "\nhard work, all things are possible."
-                + "\n================================"
+                + "\n================================================"
 
         );
         
