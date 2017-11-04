@@ -89,5 +89,10 @@ class GameMenuView {
     private void helpOnChoose() {
         System.out.println("Which one should I use?");
     }
+
+    void displayAboutTheTrail() {
+        AboutTheTrailView aboutTheTrailView = new AboutTheTrailView();
+        aboutTheTrailView.displayTrailInformation();      
+    }
     
 }
