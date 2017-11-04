@@ -6,6 +6,7 @@
 package ThreeAmigosView;
 
 import ThreeAmigosControl.GameControl;
+import ThreeAmigosModel.CurrentGame;
 import java.util.Scanner;
 import threeamigos.ThreeAmigos;
 
@@ -20,7 +21,7 @@ class MainMenuView {
         this.menu = "\n********** The Oregon Trail *********"
                  +  "\n*     1. Travel the trail           *"
                  +  "\n*     2. Learn about the trail      *"
-                 +  "\n*     3. Quit                       *"
+                 +  "\n*     Q. Quit                       *"
                  +  "\n*     What is your choice?          *"
                  +  "\n*************************************";       
     }
@@ -78,14 +79,17 @@ class MainMenuView {
     }
 
     private void travelTheTrail() {
-        GameControl.createNewTravel(ThreeAmigos.getPlayer());
+        CurrentGame currentGame = GameControl.createNewTravel(ThreeAmigos.getPlayer());
+        
+        if(currentGame == null) return;
         
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.displayOcupationMenu();
     }
 
     private void learnAboutTheTrail() {
-        System.out.println("tlearnabouttheGame ran");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayAboutTheTrail();
     }
 
     private void quitGame() {

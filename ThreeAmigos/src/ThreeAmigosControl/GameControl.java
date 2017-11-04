@@ -25,8 +25,14 @@ public class GameControl {
         return player;
     }
 
-    public static void createNewTravel(Player player) {
-        System.out.println("Create travel working");
+    public static CurrentGame createNewTravel(Player player) {
+        
+        if(player == null) return null;
+        
+        CurrentGame currentGame = new CurrentGame();
+        currentGame.setPlayer(player);
+        ThreeAmigos.setCurrentGame(currentGame);
+        return currentGame;
     }
   
     /*public void startGame(location, players, partyStatus, score) {*/
