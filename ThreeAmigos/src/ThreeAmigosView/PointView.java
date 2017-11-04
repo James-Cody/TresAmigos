@@ -11,6 +11,7 @@ package ThreeAmigosView;
  */
 public class PointView 
 {
+    /*
     private boolean done;
     private String coordinates;
     
@@ -93,5 +94,5 @@ public class PointView
     {
         Point displayPoint = new Point();
         displayPoint.toString();
-    }
+    }*/
 }
