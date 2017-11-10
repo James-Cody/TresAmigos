@@ -11,20 +11,11 @@ import java.util.Scanner;
  *
  * @author Govert Carreno
  */
-class GameMenuView {
+class GameMenuView extends View {
 
-    public void displayOcupationMenu() {
-        boolean done = false;
-        do{
-            String menuOption = this.getOcupationMenuOption();
-            if(menuOption.toUpperCase().equals("Q")) return;
-            done = this.doAction(menuOption);
-            
-        }while(!done);
-    }
-    private String ocupationMenu;
+    
     public GameMenuView() {
-        ocupationMenu =  "\n********** The Oregon Trail **********"
+        this.displayMessage =  "\n********** The Oregon Trail **********"
                       +  "\n*     Choose your occupation:        *"
                       +  "\n*     1. Banker from Boston          *"     
                       +  "\n*     2. Carpenter from Ohio         *"
@@ -35,24 +26,9 @@ class GameMenuView {
 
     }
 
-    private String getOcupationMenuOption() {
-        boolean done = false;
-        String option = "";
-        Scanner line = new Scanner(System.in);
-        do {
-            System.out.println(ocupationMenu);
-            option = line.nextLine();
-            
-            if(option.length() < 1) {
-                System.out.println("Invalid option: the option can not be blank");
-                continue;
-            }
-            break;
-        }while(!done);
-        return option;
-    }
-
-    private boolean doAction(String menuOption) {
+    
+    @Override
+    public boolean doAction(String menuOption) {
         menuOption = menuOption.toUpperCase();
         switch(menuOption){
             case "1":
@@ -92,7 +68,7 @@ class GameMenuView {
 
     void displayAboutTheTrail() {
         AboutTheTrailView aboutTheTrailView = new AboutTheTrailView();
-        aboutTheTrailView.displayTrailInformation();      
+        aboutTheTrailView.display();      
     }
     
 }

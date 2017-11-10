@@ -14,52 +14,19 @@ import threeamigos.ThreeAmigos;
  *
  * @author Govert Carreño
  */
-class MainMenuView {
+public class MainMenuView extends View {
     
-    private String menu;
+    
     public MainMenuView() {
-        this.menu = "\n********** The Oregon Trail *********"
+        this.displayMessage = "\n********** The Oregon Trail *********"
                  +  "\n*     1. Travel the trail           *"
                  +  "\n*     2. Learn about the trail      *"
                  +  "\n*     Q. Quit                       *"
                  +  "\n*     What is your choice?          *"
                  +  "\n*************************************";       
     }
-
-    public void displayMainMenuView() {
-        boolean done = false;
-        do {
-            
-            //get the options
-            String menuOption = this.getMenuOption();
-            
-            if(menuOption.toUpperCase().equals("Q")) return;
-            
-            done = this.doAction(menuOption);
-        }while(!done);
-        
-    }
-
-    private String getMenuOption() {
-        String option = "";
-        boolean done = false;
-        Scanner line = new Scanner(System.in);
-        do {
-            System.out.println("\n" + this.menu);
-            option = line.nextLine();
-            option = option.trim();
-            
-            if(option.length() < 1) {
-                System.out.println("Invalid option: the option can not be blank");
-                continue;
-            }
-            break;
-            
-        }while(!done);
-        return option;
-    }
-
-    private boolean doAction(String menuOption) {
+     @Override
+    public boolean doAction(String menuOption) {
         menuOption = menuOption.toUpperCase();
         switch(menuOption){
             case "1":
@@ -68,9 +35,7 @@ class MainMenuView {
             case "2":
                 this.learnAboutTheTrail();
                 break;
-            case "3":
-                this.quitGame();
-                break;
+            
             default :
                 System.out.println("Invalid option, try again");
                 break;
@@ -84,7 +49,7 @@ class MainMenuView {
         if(currentGame == null) return;
         
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayOcupationMenu();
+        gameMenu.display();
     }
 
     private void learnAboutTheTrail() {

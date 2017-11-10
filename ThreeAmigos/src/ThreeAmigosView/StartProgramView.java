@@ -13,10 +13,10 @@ import java.util.Scanner;
  *
  * @author Govert Carreño
  */
-public class StartProgramView {
-    String promptMessage;
+public class StartProgramView extends View {
+    
     public StartProgramView() {
-        this.promptMessage = "\nPlease enter your name:";
+        this.displayMessage = "\nPlease enter your name:";
         this.displayBanner();
     }
 
@@ -39,39 +39,8 @@ public class StartProgramView {
                 + "\n*************************************************"
         );
     }
-
-    public void displayStartProgramView() {
-        boolean done;
-        
-        do {
-            String playerName = this.getPlayerName();
-            if (playerName.toUpperCase().equals("Q")) 
-                return;
-            
-            done = this.doAction(playerName);
-        } while(!done);
-    }
-
-    private String getPlayerName() {
-        String name = "";
-        Scanner line = new Scanner(System.in);
-        boolean valid = false;
-        while (!valid) {
-            
-            System.out.println("\n" + this.promptMessage);
-            name = line.nextLine();
-            name = name.trim();
-            
-            if(name.length() < 1){
-                System.out.println("Invalid value, the valua cannot be blank");
-                continue;
-            }
-            break;
-        }
-        return name;
-    }
-
-    private boolean doAction(String name) {
+    @Override
+    public boolean doAction(String name) {
         // if the name is less than one character we'll have an error
         if(name.length() < 2){
             System.out.println("\nThe players name must me greater than one character lenght");
@@ -101,7 +70,7 @@ public class StartProgramView {
         );
         
         MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.displayMainMenuView();
+        mainMenuView.display();
     }
     
 }

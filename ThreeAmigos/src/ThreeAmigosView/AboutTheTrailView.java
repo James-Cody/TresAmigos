@@ -11,19 +11,11 @@ import java.util.Scanner;
  *
  * @author tri_t
  */
-public class AboutTheTrailView {
-    private final String information;
-    public void displayTrailInformation() {
-        boolean done = false;
-        do {
-            String getInput = this.showInformation();
-            if(getInput.toUpperCase().equals("Q")) return;
-            
-        }while(!done);
-    }
+public class AboutTheTrailView extends View {
+    
 
     public AboutTheTrailView() {
-         this.information ="\n**************The Oregon Trail*******************"
+         this.displayMessage ="\n**************The Oregon Trail*******************"
                          + "\n*This trail will have many obstacles and trials *"
                          + "\n*that you will have to overcome. Take into      *"
                          + "\n*consideration the amount of food and resources *"
@@ -35,20 +27,12 @@ public class AboutTheTrailView {
                          + "\n*************************************************";
     }
 
-    private String showInformation() {
-        boolean done = false;
-        String option = "";
-        Scanner line = new Scanner(System.in);
-        do {
-            System.out.println(information);
-            option = line.nextLine();
-            if (option.length() <1 ) {
-                System.out.println("Invalid Option: The option cannot be blank");
-                continue;
-            }
-            done = true;
-        }while(!done);
-        return option;
+    @Override
+    public boolean doAction(String value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
+
     
 }
