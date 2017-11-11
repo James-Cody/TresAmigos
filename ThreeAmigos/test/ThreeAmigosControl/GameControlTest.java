@@ -25,8 +25,8 @@ public class GameControlTest {
     @Test
     public void testStartGame() {
         System.out.println("startGame");
-        Progress progress = null;
-        CurrentGame currentGame = null;
+        Progress progress = new Progress();
+        CurrentGame currentGame = new CurrentGame();
         double score = 0.0;
         GameControl instance = new GameControl();
         String expResult = "";
@@ -42,8 +42,8 @@ public class GameControlTest {
     @Test
     public void testSaveGame() {
         System.out.println("saveGame");
-        Progress progress = null;
-        CurrentGame currentGame = null;
+        Progress progress = new Progress();
+        CurrentGame currentGame = new CurrentGame();
         double score = 0.0;
         GameControl instance = new GameControl();
         String expResult = "";
@@ -60,7 +60,7 @@ public class GameControlTest {
     public void testWinningLosing() {
         System.out.println("winningLosing");
         double score = 0.0;
-        Progress progress = null;
+        Progress progress = new Progress();
         GameControl instance = new GameControl();
         String expResult = "";
         String result = instance.winningLosing(score, progress);
@@ -75,7 +75,7 @@ public class GameControlTest {
     @Test
     public void testGetScore() {
         System.out.println("getScore");
-        CurrentGame game = null;
+        CurrentGame game = new CurrentGame();
         double distanceTraveled = 0.0;
         GameControl instance = new GameControl();
         String expResult = "";
@@ -91,8 +91,8 @@ public class GameControlTest {
     @Test
     public void testQuit() {
         System.out.println("quit");
-        Progress progress = null;
-        CurrentGame currentGame = null;
+        Progress progress = new Progress();
+        CurrentGame currentGame = new CurrentGame();
         double score = 0.0;
         GameControl instance = new GameControl();
         String expResult = "";
