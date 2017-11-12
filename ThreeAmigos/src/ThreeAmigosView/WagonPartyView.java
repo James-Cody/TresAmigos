@@ -21,18 +21,7 @@ public class WagonPartyView extends View{
     ArrayList<PartyMembers> partyMembersArray = currentGame.getPartyMembers();
     
     public WagonPartyView() {
-        /*this.displayMessage =  "\n***************** The Oregon Trail **********************" ;
         
-        for (int i = 1; i <= 5; i++){
-            if(this.partyMembersArray.size() == i ){
-                this.displayMessage += "\n" + i + partyMembersArray.get(i - 1).getName() + "     *" ;
-            }
-            else {
-                this.displayMessage += "\n" + i + "                                              *" ;
-            }
-        }       
-        
-        this.displayMessage += "\n     Enter name 1:                                      ";*/
         this.displayMessage =  "\n***************** The Oregon Trail **********************"
                              + "\n*     Enter the names of those in your wagon party:     *" 
                              + "\n*     1.                                                *" 
