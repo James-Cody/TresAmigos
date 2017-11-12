@@ -12,8 +12,8 @@ import java.util.Scanner;
  * @author Govert Carreno
  */
 class GameMenuView extends View {
-
     
+    WagonPartyView wagonPartyView = new WagonPartyView();
     public GameMenuView() {
         this.displayMessage =  "\n********** The Oregon Trail **********"
                       +  "\n*     Choose your occupation:        *"
@@ -52,14 +52,17 @@ class GameMenuView extends View {
 
     private void chooseBanker() {
         System.out.println("Banker");
+        wagonPartyView.display();
     }
 
     private void chooseCarpenter() {
         System.out.println("Carpenter");
+        wagonPartyView.display();
     }
 
     private void chooseFarmer() {
         System.out.println("Farmer");
+        wagonPartyView.display();
     }
 
     private void helpOnChoose() {
