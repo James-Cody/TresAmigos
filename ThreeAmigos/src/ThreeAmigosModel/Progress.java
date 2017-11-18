@@ -7,7 +7,6 @@ package ThreeAmigosModel;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
@@ -16,23 +15,33 @@ import java.util.Objects;
  * @author Govert Carreño
  */
 public class Progress implements Serializable{
-    private int location;
+    private int locationRow;
+    private int locationColumn;
     private long totalTime;
     private Date currentDate;
     private int citiesVisited;
-    private ArrayList<Scenes> scenes = new ArrayList<Scenes>();
+    private ArrayList<Scenes> scenes = new ArrayList<>();
     
     public Progress() {
     }
 
-    public int getLocation() {
-        return location;
+    public int getLocationRow() {
+        return locationRow;
     }
 
-    public void setLocation(int location) {
-        this.location = location;
+    public void setLocationRow(int locationRow) {
+        this.locationRow = locationRow;
     }
 
+    public int getLocationColumn() {
+        return locationColumn;
+    }
+
+    public void setLocationColumn(int locationColumn) {
+        this.locationColumn = locationColumn;
+    }
+
+    
     public ArrayList<Scenes> getScenes() {
         return scenes;
     }
@@ -69,11 +78,12 @@ public class Progress implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + this.location;
-        hash = 97 * hash + (int) (this.totalTime ^ (this.totalTime >>> 32));
-        hash = 97 * hash + Objects.hashCode(this.currentDate);
-        hash = 97 * hash + this.citiesVisited;
-        hash = 97 * hash + Objects.hashCode(this.scenes);
+        hash = 67 * hash + this.locationRow;
+        hash = 67 * hash + this.locationColumn;
+        hash = 67 * hash + (int) (this.totalTime ^ (this.totalTime >>> 32));
+        hash = 67 * hash + Objects.hashCode(this.currentDate);
+        hash = 67 * hash + this.citiesVisited;
+        hash = 67 * hash + Objects.hashCode(this.scenes);
         return hash;
     }
 
@@ -89,7 +99,10 @@ public class Progress implements Serializable{
             return false;
         }
         final Progress other = (Progress) obj;
-        if (this.location != other.location) {
+        if (this.locationRow != other.locationRow) {
+            return false;
+        }
+        if (this.locationColumn != other.locationColumn) {
             return false;
         }
         if (this.totalTime != other.totalTime) {
@@ -107,12 +120,13 @@ public class Progress implements Serializable{
         return true;
     }
 
-   
-
     @Override
     public String toString() {
-        return "Progress{" + "location=" + location + ", totalTime=" + totalTime + ", currentDate=" + currentDate + ", citiesVisited=" + citiesVisited + '}';
+        return "Progress{" + "locationRow=" + locationRow + ", locationColumn=" + locationColumn + ", totalTime=" + totalTime + ", currentDate=" + currentDate + ", citiesVisited=" + citiesVisited + ", scenes=" + scenes + '}';
     }
+    
+    
+
     
     
 }

@@ -62,8 +62,6 @@ public class WagonPartyView extends View{
         
         if(this.partyMembersArray.size() == 5) {
             this.promptToChangeName(partyMembersArray);
-            
-            
             //This line is to finish the loop in the display function, and don't ask for other name
             done = true;
         }
@@ -109,6 +107,7 @@ public class WagonPartyView extends View{
     }
 
     private void displayNextView() {
-        System.out.println("Display the next view that is choose the time (Month)");
+        System.out.println("Display the next view, that is choose the time (Month)");
+        return;
     }
 }

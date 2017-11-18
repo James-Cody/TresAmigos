@@ -6,8 +6,10 @@
 package ThreeAmigosControl;
 
 import ThreeAmigosModel.CurrentGame;
+import ThreeAmigosModel.Items;
 import ThreeAmigosModel.Player;
 import ThreeAmigosModel.Progress;
+import java.util.ArrayList;
 import threeamigos.ThreeAmigos;
 
 /**
@@ -25,78 +27,32 @@ public class GameControl {
         return player;
     }
 
-    public static CurrentGame createNewTravel(Player player) {
+    public static int createNewTravel(Player player) {
         
-        if(player == null) return null;
-        
+        if(player == null) return -1;
+        //Creating the CurrentGame
         CurrentGame currentGame = new CurrentGame();
         currentGame.setPlayer(player);
+        
+        //Creating the Items
+        ArrayList<Items> items = GameControl.createItems();
+        currentGame.setItems(items);
+        
+        //Creating map
+        Process map = createMap(0,0);
+        
         ThreeAmigos.setCurrentGame(currentGame);
-        return currentGame;
+        
+        return 1;
     }
-  
-    /*public void startGame(location, players, partyStatus, score) {*/
-    public String startGame(Progress progress, CurrentGame currentGame, double score) {
-        String res = "";
-        
-        if (score <= 0) res = "There is not score";
-        if (progress.getLocation() == 0) res = "Invalid location";
-        if (currentGame.getPartyMembers().isEmpty()) res = "there are no party members";
-        
-        return res;
-    }  
-    public String saveGame(Progress progress, CurrentGame currentGame, double score) {
-        /*
-        If score is less than 0, return error
-        If location is not A, B, or C, return error
-        If players is less than 0 or greater than 5, return error
-        If party status is not A, B, or C, return error
-        */
-        String res = "";
-        if (score <= 0) res = "There is not score";
-        if (progress.getLocation() == 0) res = "Invalid location";
-        if (currentGame.getPartyMembers().isEmpty()) res = "there is not party members";
-        
-        return res;
-    }  
-    public String winningLosing(double score,Progress progress) {
-        /*
-        If score is less than 0, return error
-        If location is oregon then return "Game finished, you won"
-        */
-        String res = "";
-        if(score == 0) res = "Game Over";
-        if(progress.getLocation() == 25) res = "Win"; //City 25 is the last city
-        
-        return res;
-        
-    }  
-    public String getScore(CurrentGame game, double distanceTraveled) {
-        /*
-         * Checking for if party members is less than 0 error or greater than 5 
-        error
-            Distance traveled if less than 0 error
-         */
-        String res = "";
-        if (game.getPartyMembers().size() <= 0) res = "There is not party members";
-        if (distanceTraveled < 0 ) res = "Distance traveled error.";
-        
-        return res;
-        
+
+    public static ArrayList<Items> createItems() {
+        System.out.println("**** createItems *****");
+        return null;
     }
-    public String quit(Progress progress, CurrentGame currentGame, double score) {
-        /*
-        If score is less than 0, return error
-        If location is not A, B, or C, return error
-        If players is less than 0 or greater than 5, return error
-        If party status is not A, B, or C, return error
-        */
-        String res = "";
-        
-        if (score <= 0) res = "There is not score";
-        if (progress.getLocation() == 0) res = "Invalid location";
-        if (currentGame.getPartyMembers().isEmpty()) res = "there is not party members";
-        
-        return res;
-    }  
+
+    private static Process createMap(int nRow, int nColumn) {
+        System.out.println("**** createMap *****");
+        return null;
+    }
 }

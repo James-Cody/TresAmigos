@@ -44,9 +44,12 @@ public class MainMenuView extends View {
     }
 
     private void travelTheTrail() {
-        CurrentGame currentGame = GameControl.createNewTravel(ThreeAmigos.getPlayer());
+        int successGame = GameControl.createNewTravel(ThreeAmigos.getPlayer());
         
-        if(currentGame == null) return;
+        if(successGame < 0) {
+            System.out.println("Falied creating the game");
+            return;
+        }
         
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
