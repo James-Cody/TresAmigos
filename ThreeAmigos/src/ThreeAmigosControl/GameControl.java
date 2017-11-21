@@ -7,8 +7,8 @@ package ThreeAmigosControl;
 
 import ThreeAmigosModel.CurrentGame;
 import ThreeAmigosModel.Items;
+import ThreeAmigosModel.Map;
 import ThreeAmigosModel.Player;
-import ThreeAmigosModel.Progress;
 import java.util.ArrayList;
 import threeamigos.ThreeAmigos;
 
@@ -35,24 +35,24 @@ public class GameControl {
         currentGame.setPlayer(player);
         
         //Creating the Items
-        ArrayList<Items> items = GameControl.createItems();
+        ArrayList<Items> items = ItemsControl.createItems();
+        if(items.isEmpty()) return -1;
         currentGame.setItems(items);
         
         //Creating map
-        Process map = createMap(0,0);
+        Map map = GameControl.createMap(0,0);
+        if(map == null) return -1;
+        currentGame.setMap(map);
         
         ThreeAmigos.setCurrentGame(currentGame);
         
         return 1;
     }
 
-    public static ArrayList<Items> createItems() {
-        System.out.println("**** createItems *****");
-        return null;
-    }
+    
 
-    private static Process createMap(int nRow, int nColumn) {
+    public static Map createMap(int nRow, int nColumn) {
         System.out.println("**** createMap *****");
-        return null;
+        return new Map();
     }
 }

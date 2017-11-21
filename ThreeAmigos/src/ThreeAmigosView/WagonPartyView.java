@@ -108,6 +108,5 @@ public class WagonPartyView extends View{
 
     private void displayNextView() {
         System.out.println("Display the next view, that is choose the time (Month)");
-        return;
     }
 }

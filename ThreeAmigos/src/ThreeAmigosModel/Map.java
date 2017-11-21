@@ -12,17 +12,12 @@ import java.util.Objects;
  *
  * @author Govert Carreño
  */
-public class City implements Serializable{
-    private String name;
+public class Map implements Serializable{
     private String description;
-    private CurrentGame game = new CurrentGame();
+    private int rowCount;
+    private int columnCount;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public Map() {
     }
 
     public String getDescription() {
@@ -33,19 +28,28 @@ public class City implements Serializable{
         this.description = description;
     }
 
-    public CurrentGame getGame() {
-        return game;
+    public int getRowCount() {
+        return rowCount;
     }
 
-    public void setGame(CurrentGame game) {
-        this.game = game;
+    public void setRowCount(int rowCount) {
+        this.rowCount = rowCount;
+    }
+
+    public int getColumnCount() {
+        return columnCount;
+    }
+
+    public void setColumnCount(int columnCount) {
+        this.columnCount = columnCount;
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 19 * hash + Objects.hashCode(this.name);
-        hash = 19 * hash + Objects.hashCode(this.description);
+        int hash = 7;
+        hash = 71 * hash + Objects.hashCode(this.description);
+        hash = 71 * hash + this.rowCount;
+        hash = 71 * hash + this.columnCount;
         return hash;
     }
 
@@ -60,8 +64,11 @@ public class City implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final City other = (City) obj;
-        if (!Objects.equals(this.name, other.name)) {
+        final Map other = (Map) obj;
+        if (this.rowCount != other.rowCount) {
+            return false;
+        }
+        if (this.columnCount != other.columnCount) {
             return false;
         }
         if (!Objects.equals(this.description, other.description)) {
@@ -72,9 +79,8 @@ public class City implements Serializable{
 
     @Override
     public String toString() {
-        return "City{" + "name=" + name + ", description=" + description + '}';
+        return "Map{" + "description=" + description + ", rowCount=" + rowCount + ", columnCount=" + columnCount + '}';
     }
-    
     
     
 }

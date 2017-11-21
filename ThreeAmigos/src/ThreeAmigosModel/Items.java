@@ -16,6 +16,7 @@ public class Items implements Serializable{
     private String name;
     private String type;
     private int cuantityInStock;
+    private double requiredAmount;
     private CurrentGame game;
     
 
@@ -30,12 +31,28 @@ public class Items implements Serializable{
         this.name = name;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public int getCuantityInStock() {
         return cuantityInStock;
     }
 
     public void setCuantityInStock(int cuantityInStock) {
         this.cuantityInStock = cuantityInStock;
+    }
+
+    public double getRequiredAmount() {
+        return requiredAmount;
+    }
+
+    public void setRequiredAmount(double requiredAmount) {
+        this.requiredAmount = requiredAmount;
     }
 
     public CurrentGame getGame() {
@@ -46,21 +63,14 @@ public class Items implements Serializable{
         this.game = game;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-    
-
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.name);
-        hash = 59 * hash + this.cuantityInStock;
-        hash = 59 * hash + Objects.hashCode(this.game);
+        hash = 97 * hash + Objects.hashCode(this.name);
+        hash = 97 * hash + Objects.hashCode(this.type);
+        hash = 97 * hash + this.cuantityInStock;
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.requiredAmount) ^ (Double.doubleToLongBits(this.requiredAmount) >>> 32));
+        hash = 97 * hash + Objects.hashCode(this.game);
         return hash;
     }
 
@@ -79,7 +89,13 @@ public class Items implements Serializable{
         if (this.cuantityInStock != other.cuantityInStock) {
             return false;
         }
+        if (Double.doubleToLongBits(this.requiredAmount) != Double.doubleToLongBits(other.requiredAmount)) {
+            return false;
+        }
         if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.type, other.type)) {
             return false;
         }
         if (!Objects.equals(this.game, other.game)) {
@@ -90,7 +106,9 @@ public class Items implements Serializable{
 
     @Override
     public String toString() {
-        return "Items{" + "name=" + name + ", cuantityInStock=" + cuantityInStock + ", game=" + game + '}';
+        return "Items{" + "name=" + name + ", type=" + type + ", cuantityInStock=" + cuantityInStock + ", requiredAmount=" + requiredAmount + ", game=" + game + '}';
     }
     
+    
+   
 }

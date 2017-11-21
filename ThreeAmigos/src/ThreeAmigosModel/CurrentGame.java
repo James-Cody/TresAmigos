@@ -19,9 +19,9 @@ public class CurrentGame implements Serializable{
     private String ocupation;
     private int money;
     private Player player = new Player();
-    private ArrayList<PartyMembers> partyMembers = new ArrayList<PartyMembers>();
-    private ArrayList<City> cities = new ArrayList<City>();
-    private ArrayList<Items> items = new ArrayList<Items>();
+    private ArrayList<PartyMembers> partyMembers = new ArrayList<>();
+    private Map map = new Map();
+    private ArrayList<Items> items = new ArrayList<>();
 
     public CurrentGame() {
     }    
@@ -84,14 +84,14 @@ public class CurrentGame implements Serializable{
         this.partyMembers = partyMembers;
     }
 
-    public ArrayList<City> getCities() {
-        return cities;
+    public Map getMap() {
+        return map;
     }
 
-    public void setCities(ArrayList<City> cities) {
-        this.cities = cities;
+    public void setMap(Map map) {
+        this.map = map;
     }
-
+    
     public ArrayList<Items> getItems() {
         return items;
     }

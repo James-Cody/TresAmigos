@@ -5,57 +5,69 @@
  */
 package ThreeAmigosControl;
 
+import ThreeAmigosModel.Items;
+import java.util.ArrayList;
+
 /**
  *
  * @author Alex
  */
 public class ItemsControl {
+
+    public ItemsControl() {
+    }
     
-//    public void buyItem(int funds, int storageSpace) {
-//        /*
-//        If item price is greater than funds, return error
-//        If item volume is greater than storage space, return error
-//        */
-//        if (itemPrice > funds) {return -1;}
-//        if (itemVolume > storgaeSpace) {return -1;}
-//        return ;
-//    }
-//    
-//    public void useItem(string item) {
-//        /*
-//        if item is not A, B, or C return error
-//        */
-//        //if (item != "list of item") {return -1;} - list of items to come
-//        
-//        return ;
-//    }
-//    
-//    public void getTotalItems() {
-//        return ;
-//    }
-//    
-//    public void updateTotalBill(int funds, int bill) {
-//        /*
-//        If total bill is greater than funds, return error
-//        if bill is less than 0 return error
-//        */
-//        if (totalBill > funds) {return -1;}
-//        if (bill < 0) {return -1;}
-//        return ;
-//    }
-//    
-//    public void trade(int funds, string item, int cost) {
-//        /*
-//        if item is not A, B, or C return error
-//        if funds are less than 0 return error
-//        if cost is = or less than 0 return error
-//        if funds is less than cost return error
-//        */ 
-//        //if (item != "list of item") {return -1;} - list of items to come
-//         if (funds < 0) {return -1;}
-//         if (cost <= 0) {return -1;}
-//         if (funds < cost) {return -1;}
-//    
-//        return ;
-//    }
+    public static ArrayList<Items> createItems() {
+        ArrayList<Items> itemList = new ArrayList<>();
+        Items singleItem = new Items();
+        singleItem.setName("Oxen");
+        singleItem.setType("Normal");
+        singleItem.setRequiredAmount(40.00);
+        singleItem.setCuantityInStock(0);
+        itemList.add(singleItem);
+        
+        singleItem = new Items();
+        singleItem.setName("Foot");
+        singleItem.setType("Normal");
+        singleItem.setRequiredAmount(0.20);
+        singleItem.setCuantityInStock(0);
+        itemList.add(singleItem);
+        
+        singleItem = new Items();
+        singleItem.setName("Clothing");
+        singleItem.setType("Normal");
+        singleItem.setRequiredAmount(10);
+        singleItem.setCuantityInStock(0);
+        itemList.add(singleItem);
+        
+        singleItem = new Items();
+        singleItem.setName("Ammunition");
+        singleItem.setType("Normal");
+        singleItem.setRequiredAmount(2);
+        singleItem.setCuantityInStock(0);
+        itemList.add(singleItem);
+        
+        singleItem = new Items();
+        singleItem.setName("Wagon Wheel");
+        singleItem.setType("Spare parts");
+        singleItem.setRequiredAmount(10);
+        singleItem.setCuantityInStock(0);
+        itemList.add(singleItem);
+        
+        singleItem = new Items();
+        singleItem.setName("Wagon Axle");
+        singleItem.setType("Spare parts");
+        singleItem.setRequiredAmount(10);
+        singleItem.setCuantityInStock(0);
+        itemList.add(singleItem);
+        
+        singleItem = new Items();
+        singleItem.setName("Wagon Tongue");
+        singleItem.setType("Spare parts");
+        singleItem.setRequiredAmount(10);
+        singleItem.setCuantityInStock(0);
+        itemList.add(singleItem);
+        
+        return itemList;
+    }
 }

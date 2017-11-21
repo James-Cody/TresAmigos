@@ -14,7 +14,7 @@ import java.util.Objects;
  */
 public class Scenes implements Serializable{
     private String description;
-    private Progress progress = new Progress();
+    private Location progress = new Location();
     
     public Scenes() {
     }
@@ -27,11 +27,11 @@ public class Scenes implements Serializable{
         this.description = description;
     }
 
-    public Progress getProgress() {
+    public Location getProgress() {
         return progress;
     }
 
-    public void setProgress(Progress progress) {
+    public void setProgress(Location progress) {
         this.progress = progress;
     }
 

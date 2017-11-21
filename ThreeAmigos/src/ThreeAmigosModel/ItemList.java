@@ -3,14 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ThreeAmigosControl;
+package ThreeAmigosModel;
 
 /**
  *
- * @author Cody
+ * @author Govert
  */
-public class MapControl {
-    
-
+public enum ItemList {
+    Oxen,
+    Food,
+    Clothing,
+    Ammunition,
+    WagonWheel,
+    WagonAxle,
+    WagonTongue;
 }
-
