@@ -6,8 +6,6 @@
 package ThreeAmigosView;
 
 import ThreeAmigosControl.GameControl;
-import ThreeAmigosModel.CurrentGame;
-import java.util.Scanner;
 import threeamigos.ThreeAmigos;
 
 /**
@@ -35,7 +33,6 @@ public class MainMenuView extends View {
             case "2":
                 this.learnAboutTheTrail();
                 break;
-            
             default :
                 System.out.println("Invalid option, try again");
                 break;
@@ -51,17 +48,13 @@ public class MainMenuView extends View {
             return;
         }
         
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.display();
+        ChooseOcupationView ChooseOcupationMenu = new ChooseOcupationView();
+        ChooseOcupationMenu.display();
     }
 
     private void learnAboutTheTrail() {
-        GameMenuView gameMenu = new GameMenuView();
+        ChooseOcupationView gameMenu = new ChooseOcupationView();
         gameMenu.displayAboutTheTrail();
-    }
-
-    private void quitGame() {
-        System.out.println("quitGame ran");
     }
     
 }

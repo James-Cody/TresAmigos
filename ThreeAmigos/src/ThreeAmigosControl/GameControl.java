@@ -40,19 +40,12 @@ public class GameControl {
         currentGame.setItems(items);
         
         //Creating map
-        Map map = GameControl.createMap(0,0);
+        Map map = MapControl.createMap(7,7,items);
         if(map == null) return -1;
         currentGame.setMap(map);
         
         ThreeAmigos.setCurrentGame(currentGame);
         
         return 1;
-    }
-
-    
-
-    public static Map createMap(int nRow, int nColumn) {
-        System.out.println("**** createMap *****");
-        return new Map();
     }
 }

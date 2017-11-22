@@ -6,6 +6,7 @@
 package ThreeAmigosModel;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -16,6 +17,7 @@ public class Map implements Serializable{
     private String description;
     private int rowCount;
     private int columnCount;
+    private Location[][] locations;
 
     public Map() {
     }
@@ -44,12 +46,21 @@ public class Map implements Serializable{
         this.columnCount = columnCount;
     }
 
+    public Location[][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 71 * hash + Objects.hashCode(this.description);
-        hash = 71 * hash + this.rowCount;
-        hash = 71 * hash + this.columnCount;
+        hash = 79 * hash + Objects.hashCode(this.description);
+        hash = 79 * hash + this.rowCount;
+        hash = 79 * hash + this.columnCount;
+        hash = 79 * hash + Arrays.deepHashCode(this.locations);
         return hash;
     }
 
@@ -74,13 +85,16 @@ public class Map implements Serializable{
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
+        if (!Arrays.deepEquals(this.locations, other.locations)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Map{" + "description=" + description + ", rowCount=" + rowCount + ", columnCount=" + columnCount + '}';
+        return "Map{" + "description=" + description + ", rowCount=" + rowCount + ", columnCount=" + columnCount + ", locations=" + locations + '}';
     }
-    
+
     
 }

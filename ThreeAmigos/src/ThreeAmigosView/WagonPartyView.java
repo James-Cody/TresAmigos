@@ -80,10 +80,12 @@ public class WagonPartyView extends View{
     private void displayIfChange() {
         boolean done = false;
         do {
-            //get the options
+            //get the option
             String menuOption = this.getInput();
             menuOption = menuOption.toUpperCase();
             if(menuOption.equals("C")){
+                //Save the array into the Game
+                currentGame.setPartyMembers(partyMembersArray);
                 this.displayNextView();
                 done = true;
             }
@@ -107,6 +109,7 @@ public class WagonPartyView extends View{
     }
 
     private void displayNextView() {
-        System.out.println("Display the next view, that is choose the time (Month)");
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.display();
     }
 }

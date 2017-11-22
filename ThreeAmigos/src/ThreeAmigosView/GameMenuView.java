@@ -5,73 +5,74 @@
  */
 package ThreeAmigosView;
 
-import java.util.Scanner;
+import ThreeAmigosModel.CurrentGame;
+import ThreeAmigosModel.Location;
+import threeamigos.ThreeAmigos;
 
 /**
  *
- * @author Govert Carreno
+ * @author Govert
  */
-class GameMenuView extends View {
-    
-    WagonPartyView wagonPartyView = new WagonPartyView();
+public class GameMenuView extends View{
+
     public GameMenuView() {
-        this.displayMessage =  "\n********** The Oregon Trail **********"
-                      +  "\n*     Choose your occupation:        *"
-                      +  "\n*     1. Banker from Boston          *"     
-                      +  "\n*     2. Carpenter from Ohio         *"
-                      +  "\n*     3. Farmer from Illinois        *"
-                      +  "\n*     4. Which one should I choose?  *"
-                      +  "\n*     What is your choice?           *"
-                      +  "\n**************************************";
-
+        displayMessage =  "\n********************************************"
+                        + "\n*     1. Continue on trail                 *"
+                        + "\n*     2. Check supplies                    *"
+                        + "\n*     3. Check the map                     *"
+                        + "\n*     4. Change pace                       *"
+                        + "\n*     5. Change food rations               *"
+                        + "\n*     6. Stop to rest                      *"
+                        + "\n*     7. Attempt to trade                  *"
+                        + "\n*     8. Hunt                              *"
+                        + "\n*     What is your choice?                 *"
+                        + "\n********************************************" ;
     }
-
     
     @Override
-    public boolean doAction(String menuOption) {
-        menuOption = menuOption.toUpperCase();
-        switch(menuOption){
+    public boolean doAction(String value) {
+        switch(value){
             case "1":
-                this.chooseBanker();
                 break;
             case "2":
-                this.chooseCarpenter();
                 break;
             case "3":
-                this.chooseFarmer();
+                this.displayMap();
                 break;
             case "4":
-                this.helpOnChoose();
                 break;
-            default :
-                System.out.println("Invalid option, try again");
+            case "5":
+                break;
+            case "6":
+                break;
+            case "7":
+                break;
+            case "8":
                 break;
         }
         return false;
     }
 
-    private void chooseBanker() {
-        System.out.println("Banker");
-        wagonPartyView.display();
+    private void displayMap() {
+        CurrentGame currentGame = ThreeAmigos.getCurrentGame();
+        Location[][] locations = currentGame.getMap().getLocations();
+        System.out.println("Map dude!");
+        System.out.println("   1  2  3  4  5  6  7");
+        for(int x = 0; x < currentGame.getMap().getRowCount();x++){
+            System.out.println("  ----------------------");
+            System.out.print((x + 1) + " ");
+            for(int y = 0; y < currentGame.getMap().getColumnCount();y++) {
+                System.out.print("|");
+                Location location = locations[x][y];
+                if(location.getVisited()) {
+                    System.out.print("XX");
+                }
+                else {
+                    System.out.print("??");
+                }
+            }
+            System.out.println("|");
+        }
+        System.out.println("  ----------------------");
     }
-
-    private void chooseCarpenter() {
-        System.out.println("Carpenter");
-        wagonPartyView.display();
-    }
-
-    private void chooseFarmer() {
-        System.out.println("Farmer");
-        wagonPartyView.display();
-    }
-
-    private void helpOnChoose() {
-        System.out.println("Which one should I use?");
-    }
-
-    void displayAboutTheTrail() {
-        AboutTheTrailView aboutTheTrailView = new AboutTheTrailView();
-        aboutTheTrailView.display();      
-    }
-    
 }
