@@ -6,6 +6,9 @@
 package ThreeAmigosView;
 
 import ThreeAmigosControl.GameControl;
+import ThreeAmigosExcepetions.GameControlExceptions;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import threeamigos.ThreeAmigos;
 
 /**
@@ -25,28 +28,28 @@ public class MainMenuView extends View {
     }
      @Override
     public boolean doAction(String menuOption) {
-        menuOption = menuOption.toUpperCase();
-        switch(menuOption){
-            case "1":
-                this.travelTheTrail();
-                break;
-            case "2":
-                this.learnAboutTheTrail();
-                break;
-            default :
-                System.out.println("Invalid option, try again");
-                break;
+        try {
+            menuOption = menuOption.toUpperCase();
+            switch(menuOption){
+                case "1":
+                    this.travelTheTrail();
+                    break;
+                case "2":
+                    this.learnAboutTheTrail();
+                    break;
+                default :
+                    System.out.println("Invalid option, try again");
+                    break;
+            }
+        } catch (GameControlExceptions ex) {
+            Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
 
-    private void travelTheTrail() {
-        int successGame = GameControl.createNewTravel(ThreeAmigos.getPlayer());
+    private void travelTheTrail() throws GameControlExceptions {
         
-        if(successGame < 0) {
-            System.out.println("Falied creating the game");
-            return;
-        }
+        GameControl.createNewTravel(ThreeAmigos.getPlayer());
         
         ChooseOcupationView ChooseOcupationMenu = new ChooseOcupationView();
         ChooseOcupationMenu.display();

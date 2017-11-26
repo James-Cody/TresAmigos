@@ -39,7 +39,15 @@ public class ThreeAmigos {
         
         //Test view layer
         StartProgramView startProgramView = new StartProgramView();
-        startProgramView.display();
+        try {
+            startProgramView.display();
+        }
+        catch(Throwable e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+            startProgramView.display();
+        }
+        
         
     }
     

@@ -5,6 +5,7 @@
  */
 package ThreeAmigosControl;
 
+import ThreeAmigosExcepetions.GameControlExceptions;
 import ThreeAmigosModel.CurrentGame;
 import ThreeAmigosModel.Items;
 import ThreeAmigosModel.Map;
@@ -18,8 +19,8 @@ import threeamigos.ThreeAmigos;
  */
 public class GameControl {
 
-    public static Player createPlayer(String name) {
-        if(name == null) return null;// if invalid name return null
+    public static Player createPlayer(String name) throws GameControlExceptions {
+        if(name == null) throw new GameControlExceptions("The name cannot be null");
         
         Player player = new Player();//create new player
         player.setName(name);// set the name of the player
@@ -27,25 +28,24 @@ public class GameControl {
         return player;
     }
 
-    public static int createNewTravel(Player player) {
+    public static void createNewTravel(Player player) throws GameControlExceptions {
         
-        if(player == null) return -1;
+        if(player == null) throw new GameControlExceptions("Error while creating the player");
         //Creating the CurrentGame
         CurrentGame currentGame = new CurrentGame();
         currentGame.setPlayer(player);
         
         //Creating the Items
         ArrayList<Items> items = ItemsControl.createItems();
-        if(items.isEmpty()) return -1;
+        if(items.isEmpty()) throw new GameControlExceptions("The list of Items is actually empty");
         currentGame.setItems(items);
         
         //Creating map
         Map map = MapControl.createMap(7,7,items);
-        if(map == null) return -1;
+        if(map == null) throw new GameControlExceptions("Error while creating the Map");
         currentGame.setMap(map);
         
         ThreeAmigos.setCurrentGame(currentGame);
         
-        return 1;
     }
 }

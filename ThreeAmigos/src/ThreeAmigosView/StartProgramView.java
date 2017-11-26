@@ -6,8 +6,11 @@
 package ThreeAmigosView;
 
 import ThreeAmigosControl.GameControl;
+import ThreeAmigosExcepetions.GameControlExceptions;
 import ThreeAmigosModel.Player;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -41,20 +44,24 @@ public class StartProgramView extends View {
     }
     @Override
     public boolean doAction(String name) {
-        // if the name is less than one character we'll have an error
-        if(name.length() < 2){
-            System.out.println("\nThe players name must me greater than one character lenght");
-            return false;
+        try {
+            // if the name is less than one character we'll have an error
+            if(name.length() < 2){
+                System.out.println("\nThe players name must me greater than one character lenght");
+                return false;
+            }
+            Player player = GameControl.createPlayer(name);
+            
+            if(player == null){
+                System.out.println("\n Error creating the player");
+                return false;
+            }
+            
+            
+            this.displayNextView(player);
+        } catch (GameControlExceptions ex) {
+            Logger.getLogger(StartProgramView.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Player player = GameControl.createPlayer(name);
-        
-        if(player == null){
-            System.out.println("\n Error creating the player");
-            return false;
-        }
-        
-        
-        this.displayNextView(player);
         return true;
     }
 
