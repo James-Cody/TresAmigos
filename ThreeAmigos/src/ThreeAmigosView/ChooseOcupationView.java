@@ -5,7 +5,6 @@
  */
 package ThreeAmigosView;
 
-import java.util.Scanner;
 
 /**
  *

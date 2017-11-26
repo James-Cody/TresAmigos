@@ -12,8 +12,6 @@ import ThreeAmigosModel.Items;
 import ThreeAmigosModel.Map;
 import ThreeAmigosModel.Player;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import threeamigos.ThreeAmigos;
 
 /**
@@ -45,7 +43,7 @@ public class GameControl {
             currentGame.setItems(items);
             
             //Creating map
-            Map map = MapControl.createMap(7,7,items);
+            Map map = MapControl.createMap(0,0,items);
             currentGame.setMap(map);
             
             ThreeAmigos.setCurrentGame(currentGame);

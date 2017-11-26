@@ -56,7 +56,7 @@ public class GameMenuView extends View{
     private void displayMap() {
         CurrentGame currentGame = ThreeAmigos.getCurrentGame();
         Location[][] locations = currentGame.getMap().getLocations();
-        System.out.println("Map dude!");
+        System.out.println("Map");
         System.out.println("   1  2  3  4  5  6  7");
         for(int x = 0; x < currentGame.getMap().getRowCount();x++){
             System.out.println("  ----------------------");

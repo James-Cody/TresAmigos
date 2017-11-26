@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class MapControl {
     
     public static Map createMap(int nRow, int nColumn, ArrayList<Items> itemList ) throws MapControlExceptions {
-        if (nColumn < 0 || nRow < 0) throw new MapControlExceptions("Error: row or column out of range");
+        if (nColumn <= 0 || nRow <= 0) throw new MapControlExceptions("Error: row or column out of range");
         if(itemList.isEmpty()) throw new MapControlExceptions("Error: List of items is empty");
         
         Map map = new Map();
