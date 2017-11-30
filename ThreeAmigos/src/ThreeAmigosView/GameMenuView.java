@@ -56,23 +56,23 @@ public class GameMenuView extends View{
     private void displayMap() {
         CurrentGame currentGame = ThreeAmigos.getCurrentGame();
         Location[][] locations = currentGame.getMap().getLocations();
-        System.out.println("Map");
-        System.out.println("   1  2  3  4  5  6  7");
+        this.console.println("Map");
+        this.console.println("   1  2  3  4  5  6  7");
         for(int x = 0; x < currentGame.getMap().getRowCount();x++){
-            System.out.println("  ----------------------");
-            System.out.print((x + 1) + " ");
+            this.console.println("  ----------------------");
+            this.console.print((x + 1) + " ");
             for(int y = 0; y < currentGame.getMap().getColumnCount();y++) {
-                System.out.print("|");
+                this.console.print("|");
                 Location location = locations[x][y];
                 if(location.getVisited()) {
-                    System.out.print("XX");
+                    this.console.print("XX");
                 }
                 else {
-                    System.out.print("??");
+                    this.console.print("??");
                 }
             }
-            System.out.println("|");
+            this.console.println("|");
         }
-        System.out.println("  ----------------------");
+        this.console.println("  ----------------------");
     }
 }

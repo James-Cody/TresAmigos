@@ -24,7 +24,7 @@ public class StartProgramView extends View {
     }
 
     private void displayBanner() {
-        System.out.println(
+        this.console.println(
                   "\n*************************************************"
                 + "\n* In the far reaches of the Midwest, the people *"
                 + "\n* in the United States decided to take their    *"
@@ -47,13 +47,13 @@ public class StartProgramView extends View {
         try {
             // if the name is less than one character we'll have an error
             if(name.length() < 2){
-                System.out.println("\nThe players name must me greater than one character lenght");
+                ErrorView.display(this.getClass().getName(),"\nThe players name must me greater than one character lenght");
                 return false;
             }
             Player player = GameControl.createPlayer(name);
             
             if(player == null){
-                System.out.println("\n Error creating the player");
+                ErrorView.display(this.getClass().getName(),"\n Error creating the player");
                 return false;
             }
             
@@ -66,7 +66,7 @@ public class StartProgramView extends View {
     }
 
     private void displayNextView(Player player) {
-        System.out.println(
+        this.console.println(
    		  "\n================================================"
                 + "\nWelcome to The Oregon Trail " + player.getName()
                 + "\nYour journey will be difficult "

@@ -94,7 +94,7 @@ public class WagonPartyView extends View{
                 done = true;
             }
             else {
-                System.out.println("Invalid option");
+                ErrorView.display(this.getClass().getName(),"Invalid option");
             }
         }while(!done);
     }

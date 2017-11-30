@@ -43,29 +43,29 @@ class ChooseOcupationView extends View {
                 this.helpOnChoose();
                 break;
             default :
-                System.out.println("Invalid option, try again");
+                ErrorView.display(this.getClass().getName(),"Invalid option, try again");
                 break;
         }
         return false;
     }
 
     private void chooseBanker() {
-        System.out.println("Banker");
+        this.console.println("Banker");
         wagonPartyView.display();
     }
 
     private void chooseCarpenter() {
-        System.out.println("Carpenter");
+        this.console.println("Carpenter");
         wagonPartyView.display();
     }
 
     private void chooseFarmer() {
-        System.out.println("Farmer");
+        this.console.println("Farmer");
         wagonPartyView.display();
     }
 
     private void helpOnChoose() {
-        System.out.println("Which one should I use?");
+        this.console.println("Which one should I use?");
     }
 
     void displayAboutTheTrail() {

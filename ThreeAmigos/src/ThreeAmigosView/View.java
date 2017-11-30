@@ -5,7 +5,13 @@
  */
 package ThreeAmigosView;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import threeamigos.ThreeAmigos;
 
 /**
  *
@@ -14,6 +20,9 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
     
     protected String displayMessage;
+    
+    protected final BufferedReader keyboard = ThreeAmigos.getInFile();
+    protected final PrintWriter console = ThreeAmigos.getOutFile();
 
     public View() {
     }
@@ -39,19 +48,21 @@ public abstract class View implements ViewInterface {
     public String getInput() {
         String option = "";
         boolean done = false;
-        Scanner line = new Scanner(System.in);
-        do {
-            System.out.println("\n" + this.displayMessage);
-            option = line.nextLine();
-            option = option.trim();
-            
-            if(option.length() < 1) {
-                System.out.println("Invalid option: the option can not be blank");
-                continue;
-            }
-            break;
-            
-        }while(!done);
+        try {
+            do {
+                this.console.println("\n" + this.displayMessage);
+                option = this.keyboard.readLine();
+                option = option.trim();
+                
+                if(option.length() < 1) {
+                    ErrorView.display(this.getClass().getName(),"Invalid option: the option can not be blank");
+                    continue;
+                }
+                break;
+            }while(!done);
+        } catch (IOException ex) {
+                Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return option;
     }
 }

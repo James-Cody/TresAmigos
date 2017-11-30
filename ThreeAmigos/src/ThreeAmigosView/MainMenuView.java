@@ -38,7 +38,7 @@ public class MainMenuView extends View {
                     this.learnAboutTheTrail();
                     break;
                 default :
-                    System.out.println("Invalid option, try again");
+                    ErrorView.display(this.getClass().getName(),"Invalid option, try again");
                     break;
             }
         } catch (GameControlExceptions ex) {
