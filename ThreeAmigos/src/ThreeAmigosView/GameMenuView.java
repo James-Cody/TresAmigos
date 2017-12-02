@@ -5,8 +5,10 @@
  */
 package ThreeAmigosView;
 
+import ThreeAmigosControl.GameControl;
 import ThreeAmigosModel.CurrentGame;
 import ThreeAmigosModel.Location;
+import java.util.concurrent.ExecutionException;
 import threeamigos.ThreeAmigos;
 
 /**
@@ -25,6 +27,7 @@ public class GameMenuView extends View{
                         + "\n*     6. Stop to rest                      *"
                         + "\n*     7. Attempt to trade                  *"
                         + "\n*     8. Hunt                              *"
+                        + "\n*     9. Save game                         *"
                         + "\n*     What is your choice?                 *"
                         + "\n********************************************" ;
     }
@@ -48,6 +51,9 @@ public class GameMenuView extends View{
             case "7":
                 break;
             case "8":
+                break;
+            case "9":
+                this.saveGame();
                 break;
         }
         return false;
@@ -74,5 +80,18 @@ public class GameMenuView extends View{
             this.console.println("|");
         }
         this.console.println("  ----------------------");
+    }
+
+    private void saveGame() {
+        this.console.println("\n\n Enter the file path for file where the game "
+                + "is to be saved");
+        String filePath = this.getInput();
+        
+        try{
+            GameControl.saveGame(ThreeAmigos.getCurrentGame(), filePath);
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), e.getMessage());
+        }
+        
     }
 }

@@ -22,6 +22,7 @@ public class MainMenuView extends View {
         this.displayMessage = "\n********** The Oregon Trail *********"
                  +  "\n*     1. Travel the trail           *"
                  +  "\n*     2. Learn about the trail      *"
+                 +  "\n*     3. Start saved game           *"
                  +  "\n*     Q. Quit                       *"
                  +  "\n*     What is your choice?          *"
                  +  "\n*************************************";       
@@ -36,6 +37,9 @@ public class MainMenuView extends View {
                     break;
                 case "2":
                     this.learnAboutTheTrail();
+                    break;
+                case "3":
+                    this.startSavedGame();
                     break;
                 default :
                     ErrorView.display(this.getClass().getName(),"Invalid option, try again");
@@ -58,6 +62,20 @@ public class MainMenuView extends View {
     private void learnAboutTheTrail() {
         ChooseOcupationView gameMenu = new ChooseOcupationView();
         gameMenu.displayAboutTheTrail();
+    }
+
+    private void startSavedGame() {
+        this.console.println("\n\n Enter the file path for file where the game "
+                + "is to be saved");
+        String filePath = this.getInput();
+        
+        try{
+            GameControl.getSavedGame(filePath);
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), e.getMessage());
+        }
+        GameMenuView gmv = new GameMenuView();
+        gmv.display();
     }
     
 }

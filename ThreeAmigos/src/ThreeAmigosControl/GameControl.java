@@ -11,7 +11,12 @@ import ThreeAmigosModel.CurrentGame;
 import ThreeAmigosModel.Items;
 import ThreeAmigosModel.Map;
 import ThreeAmigosModel.Player;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import javax.imageio.stream.FileImageInputStream;
 import threeamigos.ThreeAmigos;
 
 /**
@@ -51,4 +56,32 @@ public class GameControl {
             System.out.println(ex.getMessage());
         }
     }
+
+    public static void saveGame(CurrentGame currentGame, String filePath) 
+        throws GameControlExceptions{
+        
+        try(FileOutputStream fops = new FileOutputStream(filePath)){
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            output.writeObject(currentGame);
+
+        } catch (Exception e){
+            throw new GameControlExceptions(e.getMessage());
+        }
+    }
+
+    public static void getSavedGame(String filePath)
+        throws GameControlExceptions{
+        CurrentGame game = null;
+        
+        try(FileInputStream fips = new FileInputStream(filePath)){
+            ObjectInputStream input = new ObjectInputStream(fips);
+            game = (CurrentGame) input.readObject();
+        } catch(Exception e) {
+            throw new GameControlExceptions(e.getMessage());
+        }
+        
+        ThreeAmigos.setCurrentGame(game);
+        
+    }
+    
 }
