@@ -28,6 +28,7 @@ public class GameMenuView extends View{
                         + "\n*     7. Attempt to trade                  *"
                         + "\n*     8. Hunt                              *"
                         + "\n*     9. Save game                         *"
+                        + "\n*    10. Print wagon party                 *"
                         + "\n*     What is your choice?                 *"
                         + "\n********************************************" ;
     }
@@ -54,6 +55,9 @@ public class GameMenuView extends View{
                 break;
             case "9":
                 this.saveGame();
+                break;
+            case "10":
+                this.printWagonParty();
                 break;
         }
         return false;
@@ -93,5 +97,18 @@ public class GameMenuView extends View{
             ErrorView.display(this.getClass().getName(), e.getMessage());
         }
         
+    }
+
+    private void printWagonParty() {
+        this.console.println("\n\n Enter the file path for file where the game "
+                + "is to be saved");
+        String filePath = this.getInput();
+        
+        try{
+            GameControl.printWagonParty(ThreeAmigos.getCurrentGame().getPartyMembers(), filePath);
+            this.console.println("List saved successfuly");
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), e.getMessage());
+        }
     }
 }

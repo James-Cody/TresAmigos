@@ -43,6 +43,7 @@ public class WagonPartyView extends View{
         this.partyMembersArray.add(new PartyMembers());
         //Set the name of the member created
         this.partyMembersArray.get(wagonNumber).setName(name);
+        this.partyMembersArray.get(wagonNumber).setStatus("Good");
         
         //this variable is to control the positions of the array, here is where the variable incremensts by one
         //is the same as wagonNumber++
