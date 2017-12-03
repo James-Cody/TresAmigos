@@ -10,11 +10,15 @@ import ThreeAmigosExcepetions.MapControlExceptions;
 import ThreeAmigosModel.CurrentGame;
 import ThreeAmigosModel.Items;
 import ThreeAmigosModel.Map;
+import ThreeAmigosModel.PartyMembers;
 import ThreeAmigosModel.Player;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.imageio.stream.FileImageInputStream;
 import threeamigos.ThreeAmigos;
@@ -82,6 +86,26 @@ public class GameControl {
         
         ThreeAmigos.setCurrentGame(game);
         
+    }
+
+    public static void printWagonParty(ArrayList<PartyMembers> partyMembers, String filePath) 
+    throws GameControlExceptions{
+        try(PrintWriter out = new PrintWriter(filePath)){
+            /*ObjectOutputStream output = new ObjectOutputStream(fops);*/
+            
+            out.println("\n\nWAGON MEMBER'S LIST");
+            out.printf("%n%-20s%-20s", "Nombre","Status");
+            out.printf("%n%-20s%-20s", "------","------");
+            for(int i = 0; i < partyMembers.size();i++){
+                out.printf("%n%-20s%-20s",(i + 1) + ". " + partyMembers.get(i).getName()
+                                    ,partyMembers.get(i).getStatus());
+            }
+                
+            out.printf("%n%-20s", " *** FIN *** ");
+
+        } catch (Exception e){
+            throw new GameControlExceptions(e.getMessage());
+        }
     }
     
 }
