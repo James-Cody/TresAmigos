@@ -8,7 +8,6 @@ package ThreeAmigosView;
 import ThreeAmigosControl.GameControl;
 import ThreeAmigosModel.CurrentGame;
 import ThreeAmigosModel.Location;
-import java.util.concurrent.ExecutionException;
 import threeamigos.ThreeAmigos;
 
 /**

@@ -12,15 +12,12 @@ import ThreeAmigosModel.Items;
 import ThreeAmigosModel.Map;
 import ThreeAmigosModel.PartyMembers;
 import ThreeAmigosModel.Player;
-import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import javax.imageio.stream.FileImageInputStream;
 import threeamigos.ThreeAmigos;
 
 /**

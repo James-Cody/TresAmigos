@@ -17,7 +17,6 @@ public class Items implements Serializable{
     private String type;
     private int cuantityInStock;
     private double requiredAmount;
-    private CurrentGame game;
     
 
     public Items() {
@@ -55,22 +54,13 @@ public class Items implements Serializable{
         this.requiredAmount = requiredAmount;
     }
 
-    public CurrentGame getGame() {
-        return game;
-    }
-
-    public void setGame(CurrentGame game) {
-        this.game = game;
-    }
-
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.name);
-        hash = 97 * hash + Objects.hashCode(this.type);
-        hash = 97 * hash + this.cuantityInStock;
-        hash = 97 * hash + (int) (Double.doubleToLongBits(this.requiredAmount) ^ (Double.doubleToLongBits(this.requiredAmount) >>> 32));
-        hash = 97 * hash + Objects.hashCode(this.game);
+        hash = 29 * hash + Objects.hashCode(this.name);
+        hash = 29 * hash + Objects.hashCode(this.type);
+        hash = 29 * hash + this.cuantityInStock;
+        hash = 29 * hash + (int) (Double.doubleToLongBits(this.requiredAmount) ^ (Double.doubleToLongBits(this.requiredAmount) >>> 32));
         return hash;
     }
 
@@ -98,17 +88,14 @@ public class Items implements Serializable{
         if (!Objects.equals(this.type, other.type)) {
             return false;
         }
-        if (!Objects.equals(this.game, other.game)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Items{" + "name=" + name + ", type=" + type + ", cuantityInStock=" + cuantityInStock + ", requiredAmount=" + requiredAmount + ", game=" + game + '}';
+        return "Items{" + "name=" + name + ", type=" + type + ", cuantityInStock=" + cuantityInStock + ", requiredAmount=" + requiredAmount + '}';
     }
-    
+
     
    
 }

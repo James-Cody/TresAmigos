@@ -7,6 +7,7 @@ package ThreeAmigosModel;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  *
@@ -15,13 +16,13 @@ import java.util.ArrayList;
 public class CurrentGame implements Serializable{
     private int peopleAlive;
     private long totalTimeTraveled;
-    private long amount;
     private String ocupation;
-    private int money;
     private Player player = new Player();
     private ArrayList<PartyMembers> partyMembers = new ArrayList<>();
     private Map map = new Map();
     private ArrayList<Items> items = new ArrayList<>();
+    private int month;
+    
 
     public CurrentGame() {
     }    
@@ -32,24 +33,6 @@ public class CurrentGame implements Serializable{
 
     public void setOcupation(String ocupation) {
         this.ocupation = ocupation;
-    }
-
-    public int getMoney() {
-        return money;
-    }
-
-    public void setMoney(int money) {
-        this.money = money;
-    }
-    
-    
-
-    public long getAmount() {
-        return amount;
-    }
-
-    public void setAmount(long amount) {
-        this.amount = amount;
     }
     
     public int getPeopleAlive() {
@@ -99,12 +82,26 @@ public class CurrentGame implements Serializable{
     public void setItems(ArrayList<Items> items) {
         this.items = items;
     }
-    
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 13 * hash + this.peopleAlive;
         hash = 13 * hash + (int) (this.totalTimeTraveled ^ (this.totalTimeTraveled >>> 32));
+        hash = 13 * hash + Objects.hashCode(this.ocupation);
+        hash = 13 * hash + Objects.hashCode(this.player);
+        hash = 13 * hash + Objects.hashCode(this.partyMembers);
+        hash = 13 * hash + Objects.hashCode(this.map);
+        hash = 13 * hash + Objects.hashCode(this.items);
+        hash = 13 * hash + this.month;
         return hash;
     }
 
@@ -126,13 +123,31 @@ public class CurrentGame implements Serializable{
         if (this.totalTimeTraveled != other.totalTimeTraveled) {
             return false;
         }
+        if (this.month != other.month) {
+            return false;
+        }
+        if (!Objects.equals(this.ocupation, other.ocupation)) {
+            return false;
+        }
+        if (!Objects.equals(this.player, other.player)) {
+            return false;
+        }
+        if (!Objects.equals(this.partyMembers, other.partyMembers)) {
+            return false;
+        }
+        if (!Objects.equals(this.map, other.map)) {
+            return false;
+        }
+        if (!Objects.equals(this.items, other.items)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "CurrentGame{" + "peopleAlive=" + peopleAlive + ", totalTimeTraveled=" + totalTimeTraveled + '}';
+        return "CurrentGame{" + "peopleAlive=" + peopleAlive + ", totalTimeTraveled=" + totalTimeTraveled + ", ocupation=" + ocupation + ", player=" + player + ", partyMembers=" + partyMembers + ", map=" + map + ", items=" + items + ", month=" + month + '}';
     }
-    
+        
     
 }

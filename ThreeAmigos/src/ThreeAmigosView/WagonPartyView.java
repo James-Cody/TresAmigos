@@ -110,7 +110,7 @@ public class WagonPartyView extends View{
     }
 
     private void displayNextView() {
-        GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.display();
+        ChooseMonthView chooseMonth = new ChooseMonthView();
+        chooseMonth.display();
     }
 }

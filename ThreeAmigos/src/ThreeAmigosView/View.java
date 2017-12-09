@@ -8,7 +8,6 @@ package ThreeAmigosView;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import threeamigos.ThreeAmigos;
@@ -34,7 +33,6 @@ public abstract class View implements ViewInterface {
     public void display() {
         boolean done = false;
         do {
-            
             //get the options
             String menuOption = this.getInput();
             

@@ -15,7 +15,9 @@ import java.util.Objects;
  */
 public class Player implements Serializable{
     private String name;
+    private String ocupation;
     private double highScore;
+    private float  amount;
     private ArrayList<CurrentGame> games = new ArrayList<CurrentGame>();
 
     public Player() {
@@ -29,12 +31,28 @@ public class Player implements Serializable{
         this.name = name;
     }
 
+    public String getOcupation() {
+        return ocupation;
+    }
+
+    public void setOcupation(String ocupation) {
+        this.ocupation = ocupation;
+    }
+
     public double getHighScore() {
         return highScore;
     }
 
     public void setHighScore(double highScore) {
         this.highScore = highScore;
+    }
+
+    public float getAmount() {
+        return amount;
+    }
+
+    public void setAmount(float amount) {
+        this.amount = amount;
     }
 
     public ArrayList<CurrentGame> getGames() {
@@ -48,8 +66,11 @@ public class Player implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.name);
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.highScore) ^ (Double.doubleToLongBits(this.highScore) >>> 32));
+        hash = 37 * hash + Objects.hashCode(this.name);
+        hash = 37 * hash + Objects.hashCode(this.ocupation);
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.highScore) ^ (Double.doubleToLongBits(this.highScore) >>> 32));
+        hash = 37 * hash + Float.floatToIntBits(this.amount);
+        hash = 37 * hash + Objects.hashCode(this.games);
         return hash;
     }
 
@@ -68,7 +89,16 @@ public class Player implements Serializable{
         if (Double.doubleToLongBits(this.highScore) != Double.doubleToLongBits(other.highScore)) {
             return false;
         }
+        if (Float.floatToIntBits(this.amount) != Float.floatToIntBits(other.amount)) {
+            return false;
+        }
         if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.ocupation, other.ocupation)) {
+            return false;
+        }
+        if (!Objects.equals(this.games, other.games)) {
             return false;
         }
         return true;
@@ -76,9 +106,7 @@ public class Player implements Serializable{
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", highScore=" + highScore + '}';
+        return "Player{" + "name=" + name + ", ocupation=" + ocupation + ", highScore=" + highScore + ", amount=" + amount + ", games=" + games + '}';
     }
-    
-    
     
 }

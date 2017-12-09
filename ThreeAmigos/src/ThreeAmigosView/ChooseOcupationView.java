@@ -5,6 +5,12 @@
  */
 package ThreeAmigosView;
 
+import ThreeAmigosExcepetions.GameControlExceptions;
+import ThreeAmigosModel.Player;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import threeamigos.ThreeAmigos;
+
 
 /**
  *
@@ -12,7 +18,7 @@ package ThreeAmigosView;
  */
 class ChooseOcupationView extends View {
     
-    WagonPartyView wagonPartyView = new WagonPartyView();
+    
     public ChooseOcupationView() {
         this.displayMessage =  "\n********** The Oregon Trail **********"
                             +  "\n*     Choose your occupation:        *"
@@ -28,42 +34,56 @@ class ChooseOcupationView extends View {
     
     @Override
     public boolean doAction(String menuOption) {
-        menuOption = menuOption.toUpperCase();
-        switch(menuOption){
-            case "1":
-                this.chooseBanker();
-                break;
-            case "2":
-                this.chooseCarpenter();
-                break;
-            case "3":
-                this.chooseFarmer();
-                break;
-            case "4":
-                this.helpOnChoose();
-                break;
-            default :
-                ErrorView.display(this.getClass().getName(),"Invalid option, try again");
-                break;
+        try {
+            menuOption = menuOption.toUpperCase();
+            switch(menuOption){
+                case "1":
+                    this.chooseOcupation(1);
+                    break;
+                case "2":
+                    this.chooseOcupation(2);
+                    break;
+                case "3":
+                    this.chooseOcupation(3);
+                    break;
+                case "4":
+                    this.helpOnChoose();
+                    break;
+                default :
+                    ErrorView.display(this.getClass().getName(),"Invalid option, try again");
+                    break;
+            }
+            
+        } catch (Exception ex) {
+            this.console.println(ex.getMessage());
         }
         return false;
     }
-
-    private void chooseBanker() {
-        this.console.println("Banker");
+    
+    private void chooseOcupation(int i) throws Exception {
+        WagonPartyView wagonPartyView = new WagonPartyView();
+        Player player = ThreeAmigos.getCurrentGame().getPlayer();
+        
+        switch (i) {
+            case 1: //Banker
+                player.setOcupation("Banker");
+                player.setAmount(1600);
+                break;
+            case 2: //Carpenter
+                player.setOcupation("Carpenter");
+                player.setAmount(800);
+                break;
+            case 3: // Farmer
+                player.setOcupation("Farmer");
+                player.setAmount(400);
+                break;
+            default:
+                throw new GameControlExceptions("Error while adding ocupation");
+        }
+        ThreeAmigos.getCurrentGame().setPlayer(player);
         wagonPartyView.display();
     }
-
-    private void chooseCarpenter() {
-        this.console.println("Carpenter");
-        wagonPartyView.display();
-    }
-
-    private void chooseFarmer() {
-        this.console.println("Farmer");
-        wagonPartyView.display();
-    }
-
+    
     private void helpOnChoose() {
         this.console.println("Which one should I use?");
     }
@@ -71,6 +91,6 @@ class ChooseOcupationView extends View {
     void displayAboutTheTrail() {
         AboutTheTrailView aboutTheTrailView = new AboutTheTrailView();
         aboutTheTrailView.display();      
-    }
+    }  
     
 }
