@@ -10,13 +10,13 @@ import java.util.Objects;
 
 /**
  *
- * @author user
+ * @author Govert
  */
 public class Items implements Serializable{
     private String name;
     private String type;
     private int cuantityInStock;
-    private double requiredAmount;
+    private float requiredAmount;
     
 
     public Items() {
@@ -46,11 +46,11 @@ public class Items implements Serializable{
         this.cuantityInStock = cuantityInStock;
     }
 
-    public double getRequiredAmount() {
+    public float getRequiredAmount() {
         return requiredAmount;
     }
 
-    public void setRequiredAmount(double requiredAmount) {
+    public void setRequiredAmount(float requiredAmount) {
         this.requiredAmount = requiredAmount;
     }
 
