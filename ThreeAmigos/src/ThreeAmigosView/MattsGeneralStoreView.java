@@ -201,6 +201,7 @@ public class MattsGeneralStoreView extends View {
             game.getPlayer().setAmount(game.getPlayer().getAmount() - totalCost);
             totAmmunition = totalCost;
         }
+        ThreeAmigos.setCurrentGame(game);
         this.updateMenu();
     }
     

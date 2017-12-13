@@ -36,6 +36,7 @@ public class GameMenuView extends View{
     public boolean doAction(String value) {
         switch(value){
             case "1":
+                this.continueOnTrail();
                 break;
             case "2":
                 break;
@@ -61,11 +62,28 @@ public class GameMenuView extends View{
         }
         return false;
     }
+    private void continueOnTrail() {
+        CurrentGame currentGame = ThreeAmigos.getCurrentGame();
+        Location[][] locations = currentGame.getMap().getLocations();
+        int y = 0;
+        for(int x = 0; x < currentGame.getMap().getRowCount();x++){
+            for(y = 0; y < currentGame.getMap().getColumnCount();y++) {
+                if (!locations[x][y].getVisited()){
+                    locations[x][y].setVisited(true);
+                    break;
+                }
+            }
+            if (locations[x][y].getVisited()) break;
+        }
+        
+    }
+    private void checkSupplies() {
+        
+    }
 
     private void displayMap() {
         CurrentGame currentGame = ThreeAmigos.getCurrentGame();
         Location[][] locations = currentGame.getMap().getLocations();
-        this.console.println("Map");
         this.console.println("   1  2  3  4  5  6  7");
         for(int x = 0; x < currentGame.getMap().getRowCount();x++){
             this.console.println("  ----------------------");
