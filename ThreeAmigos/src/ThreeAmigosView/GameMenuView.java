@@ -39,6 +39,7 @@ public class GameMenuView extends View{
                 this.continueOnTrail();
                 break;
             case "2":
+                this.checkSupplies();
                 break;
             case "3":
                 this.displayMap();
@@ -78,6 +79,7 @@ public class GameMenuView extends View{
         
     }
     private void checkSupplies() {
+        CurrentGame currentGame = ThreeAmigos.getCurrentGame();
         
     }
 
